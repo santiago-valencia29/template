@@ -9,7 +9,7 @@ import { User } from 'src/app/models'
 })
 export class UserComponent implements OnInit {
   @Input()
-  user: User
+  user!: any
   @Output() signOut: EventEmitter<void> = new EventEmitter<void>()
   public routes: typeof routes = routes
   public flatlogicEmail: string = 'https://flatlogic.com'

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
+import { Component, EventEmitter, Input, Output } from '@angular/core'
 import { Router } from '@angular/router'
 import { Observable } from 'rxjs'
 import { Email, User } from 'src/app/models'
@@ -10,9 +10,8 @@ import { routes } from '../../../../consts'
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
-  @Input()
-  isMenuOpened: boolean
+export class HeaderComponent {
+  @Input() isMenuOpened!: boolean
   @Output() isShowSidebar = new EventEmitter<boolean>()
   public user$: Observable<User>
   public emails$: Observable<Email[]>
@@ -36,6 +35,4 @@ export class HeaderComponent implements OnInit {
   public signOut(): void {
     this.router.navigate([this.routers.LOGIN])
   }
-
-  ngOnInit() {}
 }

@@ -15,7 +15,7 @@ import { MatSidenav } from '@angular/material/sidenav'
 })
 export class LayoutComponent implements OnInit, OnDestroy {
   @ViewChild('sidenav')
-  sidenav: MatSidenav
+  sidenav!: MatSidenav
   public isShowSidebar: boolean
   public mobileQuery: MediaQueryList
   private mobileQueryListener: () => void
