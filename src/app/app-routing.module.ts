@@ -4,11 +4,12 @@ import { PopupPageComponent } from './pages/popup/containers'
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'popup',
     pathMatch: 'full',
     // canActivate: [AuthGuard],
     component: PopupPageComponent
-  }
+  },
+  { path: '**', pathMatch: 'full', redirectTo: 'popup' }
   // {
   //   path: 'typography',
   //   pathMatch: 'full',
