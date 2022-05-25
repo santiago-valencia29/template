@@ -1,28 +1,28 @@
-import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Injectable } from '@angular/core'
+import { Observable, of } from 'rxjs'
 
-import { User } from '../models';
+import { User } from '../models'
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   public login(): void {
-    localStorage.setItem('token', 'token');
+    localStorage.setItem('token', 'token')
   }
 
   public sign(): void {
-    localStorage.setItem('token', 'token');
+    localStorage.setItem('token', 'token')
   }
 
   public signOut(): void {
-    localStorage.removeItem('token');
+    localStorage.removeItem('token')
   }
 
   public getUser(): Observable<User> {
     return of({
-      name: 'John',
-      lastName: 'Smith'
-    });
+      name: 'Santiago',
+      lastName: 'Valencia'
+    })
   }
 }
