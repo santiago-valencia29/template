@@ -6,7 +6,6 @@ import { AngularMaterialModule } from 'src/app/app-material.module'
 import {
   EmailComponent,
   NotificationsComponent,
-  SearchComponent,
   UserComponent
 } from './components'
 import { ShortNamePipe } from './pipes'
@@ -15,7 +14,6 @@ import { ShortNamePipe } from './pipes'
   imports: [CommonModule, AngularMaterialModule],
   declarations: [
     HeaderComponent,
-    SearchComponent,
     NotificationsComponent,
     EmailComponent,
     UserComponent,
