@@ -11,7 +11,8 @@ import { routes } from '../../../../consts'
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  @Input() isMenuOpened: boolean | undefined
+  @Input()
+  isMenuOpened: boolean
   @Output() isShowSidebar = new EventEmitter<boolean>()
   public user$: Observable<User>
   public emails$: Observable<Email[]>

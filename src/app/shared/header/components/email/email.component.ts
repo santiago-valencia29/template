@@ -8,7 +8,7 @@ import { Email } from 'src/app/models'
 })
 export class EmailComponent implements OnInit {
   @Input()
-  emails!: Email[]
+  emails: Email[]
   public colors: string[] = ['yellow', 'green', 'blue', 'ping']
   constructor() {}
 

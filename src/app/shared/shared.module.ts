@@ -5,9 +5,12 @@ import { FormsModule } from '@angular/forms'
 import { AngularMaterialModule } from '../app-material.module'
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog'
 import { HeaderModule } from './header/header.module'
+import { LayoutComponent } from './layout/layout.component'
+import { SidebarComponent } from './sidebar/sidebar.component'
+import { FooterComponent } from './footer/footer.component'
 
 @NgModule({
-  declarations: [],
+  declarations: [LayoutComponent, SidebarComponent, FooterComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -15,7 +18,7 @@ import { HeaderModule } from './header/header.module'
     AngularMaterialModule,
     HeaderModule
   ],
-  exports: [],
+  exports: [LayoutComponent, SidebarComponent, FooterComponent],
   providers: [
     { provide: MAT_DIALOG_DATA, useValue: {} },
     { provide: MatDialogRef, useValue: {} }

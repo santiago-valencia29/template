@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core'
 import { RouterModule, Routes, PreloadAllModules } from '@angular/router'
+import { PopupPageComponent } from './pages/popup/containers'
 
 const routes: Routes = [
-  // {
-  //   path: 'dashboard',
-  //   pathMatch: 'full',
-  //   canActivate: [AuthGuard],
-  //   component: DashboardPageComponent
-  // },
+  {
+    path: '',
+    pathMatch: 'full',
+    // canActivate: [AuthGuard],
+    component: PopupPageComponent
+  }
   // {
   //   path: 'typography',
   //   pathMatch: 'full',
