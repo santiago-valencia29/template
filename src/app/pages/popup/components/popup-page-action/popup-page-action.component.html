@@ -1,5 +1,5 @@
 <div class="p-3" fxLayout="column">
-  <h2 mat-dialog-title>Formulario</h2>
+  <h2 mat-dialog-title>Form Angular Material</h2>
   <div mat-dialog-content>
     <div fxLayout.lg="column">
       <mat-form-field appearance="fill">
@@ -37,7 +37,7 @@
         <h5>You chose:</h5>
         {{ toppings.value | json }}
       </section>
-      <h5>Paginador</h5>
+      <h5>Pagination</h5>
       <mat-paginator
         [length]="100"
         [pageSize]="10"
@@ -93,8 +93,8 @@
     </p>
   </div>
   <div class="mt-2" mat-dialog-actions>
-    <button class="m-1" mat-raised-button (click)="onClose()">Cancelar</button>
-    <button class="m-1" color="primary" mat-raised-button>Editar</button>
-    <button class="m-1" color="primary" mat-raised-button>Guardar</button>
+    <button class="m-1" mat-raised-button (click)="onClose()">Cancel</button>
+    <button class="m-1" color="primary" mat-raised-button>Edit</button>
+    <button class="m-1" color="primary" mat-raised-button>Save</button>
   </div>
 </div>
