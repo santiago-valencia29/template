@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core'
 import { Router } from '@angular/router'
 import { Observable } from 'rxjs'
-import { Email, User } from 'src/app/models'
+import { Email, User } from 'src/app/shared/models'
 import { AuthService, EmailService } from 'src/app/services'
 import { routes } from '../../../../consts'
 

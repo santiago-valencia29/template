@@ -6,16 +6,17 @@ const routes: Routes = [
   {
     path: 'popup',
     pathMatch: 'full',
-    // canActivate: [AuthGuard],
     component: PopupPageComponent
   },
-  { path: '**', pathMatch: 'full', redirectTo: 'popup' }
-  // {
-  //   path: 'typography',
-  //   pathMatch: 'full',
-  //   canActivate: [AuthGuard],
-  //   loadChildren: () => import('./pages/typography/typography.module').then(m => m.TypographyModule)
-  // },
+  { path: '', pathMatch: 'full', redirectTo: 'popup' },
+  {
+    path: 'typography',
+    pathMatch: 'full',
+    loadChildren: () =>
+      import('./pages/typography/typography.module').then(
+        (m) => m.TypographyModule
+      )
+  }
   // {
   //   path: 'tables',
   //   pathMatch: 'full',
