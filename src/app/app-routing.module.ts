@@ -22,30 +22,21 @@ const routes: Routes = [
     pathMatch: 'full',
     loadChildren: () =>
       import('./pages/tables/tables.module').then((m) => m.TablesModule)
+  },
+  {
+    path: 'notification',
+    pathMatch: 'full',
+    loadChildren: () =>
+      import('./pages/notification/notification.module').then(
+        (m) => m.NotificationModule
+      )
   }
-  // {
-  //   path: 'notification',
-  //   pathMatch: 'full',
-  //   canActivate: [AuthGuard],
-  //   loadChildren: () => import('./pages/notification/notification.module').then(m => m.NotificationModule)
-  // },
+
   // {
   //   path: 'ui',
   //   canActivate: [AuthGuard],
   //   loadChildren: () => import('./pages/ui-elements/ui-elements.module').then(m => m.UiElementsModule)
   // },
-  // {
-  //   path: '404',
-  //   component: NotFoundComponent
-  // },
-  // {
-  //   path: 'login',
-  //   loadChildren: () => import('./pages/auth/auth.module').then(m => m.AuthModule)
-  // },
-  // {
-  //   path: '**',
-  //   redirectTo: '404'
-  // }
 ]
 
 @NgModule({
