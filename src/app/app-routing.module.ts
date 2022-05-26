@@ -16,13 +16,13 @@ const routes: Routes = [
       import('./pages/typography/typography.module').then(
         (m) => m.TypographyModule
       )
+  },
+  {
+    path: 'tables',
+    pathMatch: 'full',
+    loadChildren: () =>
+      import('./pages/tables/tables.module').then((m) => m.TablesModule)
   }
-  // {
-  //   path: 'tables',
-  //   pathMatch: 'full',
-  //   canActivate: [AuthGuard],
-  //   loadChildren: () => import('./pages/tables/tables.module').then(m => m.TablesModule)
-  // },
   // {
   //   path: 'notification',
   //   pathMatch: 'full',
