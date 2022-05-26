@@ -3,7 +3,27 @@
     <h1>Notifications</h1>
   </mat-toolbar>
 
-  <div fxLayout="column"></div>
+  <div class="m-3" fxLayout="column">
+    <a
+      target="_blank"
+      style="text-decoration: none"
+      class="p-2"
+      href="https://sweetalert2.github.io/#examples"
+      >SweetAlert2</a
+    >
+    <div fxLayout="row wrap" fxLayoutAlign="space-between">
+      <button (click)="warning()" class="btn btn-warning m-2">warning</button>
+      <button (click)="positionTop()" class="btn btn-primary m-2">
+        Position top-right
+      </button>
+      <button (click)="error()" class="btn btn-danger m-2">error</button>
+      <button (click)="success()" class="btn btn-success m-2">
+        success bottom-left
+      </button>
+      <button (click)="info()" class="btn btn-info m-2">info</button>
+      <button (click)="toast()" class="btn btn-secondary m-2">toast</button>
+    </div>
+  </div>
 
   <app-footer></app-footer>
 </app-layout>

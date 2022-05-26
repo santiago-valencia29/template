@@ -1,3 +1,14 @@
 @import 'src/app/styles/variables';
 @import 'src/app/styles/colors';
 @import 'src/app/styles/font';
+
+#custom-target {
+  position: relative;
+  width: 600px;
+  height: 300px;
+  border-style: solid;
+}
+
+.position-absolute {
+  position: absolute;
+}
