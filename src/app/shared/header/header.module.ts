@@ -9,16 +9,18 @@ import {
   UserComponent
 } from './components'
 import { ShortNamePipe } from './pipes'
+import { HeaderBasicComponent } from './containers/header-basic/header-basic.component'
 
 @NgModule({
   imports: [CommonModule, AngularMaterialModule],
   declarations: [
     HeaderComponent,
+    HeaderBasicComponent,
     NotificationsComponent,
     EmailComponent,
     UserComponent,
     ShortNamePipe
   ],
-  exports: [HeaderComponent]
+  exports: [HeaderComponent, HeaderBasicComponent]
 })
 export class HeaderModule {}
