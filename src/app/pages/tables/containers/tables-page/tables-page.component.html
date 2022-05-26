@@ -7,7 +7,9 @@
     <app-employee-table
       [employeeTableData]="employeeTableData$ | async"
     ></app-employee-table>
-    <!-- <app-material-table [materialTableDate]="materialTableData$ | async"></app-material-table> -->
+    <app-material-table
+      [materialTableDate]="materialTableData$ | async"
+    ></app-material-table>
   </div>
 
   <app-footer></app-footer>
