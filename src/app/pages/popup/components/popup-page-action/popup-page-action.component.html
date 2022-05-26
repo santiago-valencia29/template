@@ -1,6 +1,54 @@
 <div class="p-3" fxLayout="column">
   <h2 mat-dialog-title>Formulario</h2>
   <div mat-dialog-content>
+    <div fxLayout.lg="column">
+      <mat-form-field appearance="fill">
+        <mat-label>Input</mat-label>
+        <input matInput />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Select</mat-label>
+        <mat-select>
+          <mat-option value="1">1 option</mat-option>
+          <mat-option value="2">2 option</mat-option>
+          <mat-option value="3">3 option</mat-option>
+          <mat-option value="4">4 option</mat-option>
+          <mat-option value="5">5 option</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Textarea</mat-label>
+        <textarea matInput></textarea>
+      </mat-form-field>
+      <section class="example-section" [formGroup]="toppings">
+        <h4>Select your toppings:</h4>
+        <p>
+          <mat-checkbox formControlName="pepperoni">Pepperoni</mat-checkbox>
+        </p>
+        <p>
+          <mat-checkbox formControlName="extracheese"
+            >Extra Cheese</mat-checkbox
+          >
+        </p>
+        <p><mat-checkbox formControlName="mushroom">Mushroom</mat-checkbox></p>
+      </section>
+
+      <section class="example-section mb-4" [formGroup]="toppings">
+        <h5>You chose:</h5>
+        {{ toppings.value | json }}
+      </section>
+      <h5>Paginador</h5>
+      <mat-paginator
+        [length]="100"
+        [pageSize]="10"
+        [pageSizeOptions]="[5, 10, 25, 100]"
+        aria-label="Select page"
+      >
+      </mat-paginator>
+      <h5>Progress Bar</h5>
+
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </div>
     <p>
       ¿Qué es Lorem Ipsum? Lorem Ipsum es simplemente el texto de relleno de las
       imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno

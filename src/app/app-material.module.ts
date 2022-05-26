@@ -36,6 +36,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle'
 import { DragDropModule } from '@angular/cdk/drag-drop'
 import { CdkTableModule } from '@angular/cdk/table'
 import { MatDialogModule } from '@angular/material/dialog'
+import { MatProgressBarModule } from '@angular/material/progress-bar'
 
 const materialModules = [
   CdkTreeModule,
@@ -74,7 +75,8 @@ const materialModules = [
   MatNativeDateModule,
   DragDropModule,
   CdkTableModule,
-  MatDialogModule
+  MatDialogModule,
+  MatProgressBarModule
 ]
 
 @NgModule({
