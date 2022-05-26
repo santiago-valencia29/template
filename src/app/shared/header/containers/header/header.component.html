@@ -15,6 +15,6 @@
     <a mat-flat-button class="unlock-button" href="" target="_blank">Botón</a>
     <app-notifications></app-notifications>
     <app-email [emails]="emails$ | async"></app-email>
-    <app-user [user]="user$ | async" (signOut)="signOut()"></app-user>
+    <app-user [user]="user$ | async"></app-user>
   </div>
 </mat-toolbar>

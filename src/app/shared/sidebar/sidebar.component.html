@@ -14,13 +14,11 @@
   >
     <mat-icon>notifications_none</mat-icon> Notification
   </mat-list-item>
-  <mat-list-item (click)="openUiElements()">
-    <mat-icon>filter_none</mat-icon> Services
-  </mat-list-item>
+  <mat-list-item> <mat-icon>filter_none</mat-icon> Comunication </mat-list-item>
   <div>
     <mat-list-item
       class="ui-element"
-      routerLink="{{ routes.UI_ELEMENTS_ICONS }}"
+      routerLink="{{ routes.COMUNICATION_ICONS }}"
       routerLinkActive="active"
     >
       <div class="circle"></div>
@@ -32,7 +30,7 @@
       routerLinkActive="active"
     >
       <div class="circle"></div>
-      Get
+      Service One
     </mat-list-item>
     <mat-list-item
       class="ui-element"
@@ -40,7 +38,7 @@
       routerLinkActive="active"
     >
       <div class="circle"></div>
-      Post Token
+      Service Two
     </mat-list-item>
   </div>
 </mat-list>

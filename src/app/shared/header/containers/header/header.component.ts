@@ -32,7 +32,7 @@ export class HeaderComponent {
     this.isShowSidebar.emit(this.isMenuOpened)
   }
 
-  public signOut(): void {
-    this.router.navigate([this.routers.LOGIN])
-  }
+  // public signOut(): void {
+  //   this.router.navigate([this.routers.LOGIN])
+  // }
 }

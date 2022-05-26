@@ -10,9 +10,6 @@ export class SidebarComponent implements OnInit {
   public routes: typeof routes = routes
   public isOpenUiElements = false
 
-  public openUiElements() {
-    this.isOpenUiElements = !this.isOpenUiElements
-  }
   constructor() {}
 
   ngOnInit() {}

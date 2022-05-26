@@ -12,6 +12,7 @@ import { SharedModule } from 'src/app/shared/shared.module'
     AngularMaterialModule,
     SharedModule
   ],
-  declarations: [TypographyPageComponent]
+  declarations: [TypographyPageComponent],
+  exports: [TypographyPageComponent]
 })
 export class TypographyModule {}

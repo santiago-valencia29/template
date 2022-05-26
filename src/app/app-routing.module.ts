@@ -30,13 +30,14 @@ const routes: Routes = [
       import('./pages/notification/notification.module').then(
         (m) => m.NotificationModule
       )
+  },
+  {
+    path: 'comunication',
+    loadChildren: () =>
+      import('./pages/comunication/comunication.module').then(
+        (m) => m.ComunicationModule
+      )
   }
-
-  // {
-  //   path: 'ui',
-  //   canActivate: [AuthGuard],
-  //   loadChildren: () => import('./pages/ui-elements/ui-elements.module').then(m => m.UiElementsModule)
-  // },
 ]
 
 @NgModule({

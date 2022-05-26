@@ -12,6 +12,7 @@ import { SharedModule } from 'src/app/shared/shared.module'
     AngularMaterialModule,
     SharedModule
   ],
-  declarations: [NotificationPageComponent]
+  declarations: [NotificationPageComponent],
+  exports: [NotificationPageComponent]
 })
 export class NotificationModule {}

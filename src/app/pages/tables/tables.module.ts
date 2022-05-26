@@ -5,7 +5,6 @@ import { AngularMaterialModule } from 'src/app/app-material.module'
 import { SharedModule } from 'src/app/shared/shared.module'
 import { TablesPageComponent } from './containers'
 import { EmployeeTableComponent, MaterialTableComponent } from './components'
-import { TablesService } from './services/tables.service'
 
 @NgModule({
   imports: [
@@ -18,9 +17,7 @@ import { TablesService } from './services/tables.service'
     TablesPageComponent,
     MaterialTableComponent,
     EmployeeTableComponent
-  ]
-  // providers: [
-  //   TablesService
-  // ]
+  ],
+  exports: [TablesPageComponent, MaterialTableComponent, EmployeeTableComponent]
 })
 export class TablesModule {}

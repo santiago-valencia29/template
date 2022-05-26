@@ -5,6 +5,10 @@ import { AppComponent } from './app.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { PopupModule } from './pages/popup/popup.module'
 import { SharedModule } from './shared/shared.module'
+import { NotificationModule } from './pages/notification/notification.module'
+import { TablesModule } from './pages/tables/tables.module'
+import { TypographyModule } from './pages/typography/typography.module'
+import { ComunicationModule } from './pages/comunication/comunication.module'
 
 @NgModule({
   declarations: [AppComponent],
@@ -13,7 +17,11 @@ import { SharedModule } from './shared/shared.module'
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
-    PopupModule
+    PopupModule,
+    NotificationModule,
+    TablesModule,
+    TypographyModule,
+    ComunicationModule
   ],
   bootstrap: [AppComponent]
 })
