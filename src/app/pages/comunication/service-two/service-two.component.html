@@ -1,3 +1,12 @@
-<p>
-  service-two works!
-</p>
+<div class="pb-5" fxLayout="row">
+  <app-header-basic></app-header-basic>
+</div>
+<mat-toolbar class="page-header" role="heading">
+  <h1>Service Two</h1>
+  <button routerLink="{{ routes.POPUP }}" mat-flat-button>Volver</button>
+</mat-toolbar>
+
+<div class="p-4" fxLayout="row ">
+  <button (click)="getInfoWithToken()" class="btn btn-info">Run Service</button>
+</div>
+<div class="p-3"></div>

@@ -4,9 +4,7 @@
 
 export const environment = {
   production: false,
-  urlServer: 'http://localhost:4200',
-  urlJerarquia:
-    'https://apijerarquiaempleados.appsintegral.net:30443/api/HierarchyEmployee/Collaborator'
+  urlServer: 'http://localhost:4200'
 }
 
 /*
