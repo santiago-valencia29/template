@@ -7,6 +7,6 @@
 </mat-toolbar>
 
 <div class="p-4" fxLayout="row ">
-  <button class="btn btn-success">Run Service</button>
+  <button (click)="getFirebase()" class="btn btn-success">Run Service</button>
 </div>
-<div class=""></div>
+<div class="p-3">{{ data | json }}</div>
