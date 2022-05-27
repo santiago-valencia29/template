@@ -18,7 +18,7 @@ export class ApiIntegralPortalService {
   //   )
   // }
 
-  getProjects(): Observable<any> {
+  getLeader(): Observable<any> {
     return this._http.get(
       'https://apijerarquiaempleados.appsintegral.net:30443/api/HierarchyEmployee/Collaborator?DocumentCollaborator=1026258831',
       { headers: this.headers }

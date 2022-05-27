@@ -15,12 +15,12 @@ export class ServiceOneComponent implements OnInit {
   constructor(private _jerarquiaService: ApiIntegralPortalService) {}
 
   ngOnInit() {
-    this.getJerarquia()
+    this.getLeader()
     // this.getFirebase()
   }
 
-  getJerarquia() {
-    this._jerarquiaService.getProjects().subscribe((x) => {
+  getLeader() {
+    this._jerarquiaService.getLeader().subscribe((x) => {
       console.log(x)
     })
   }
