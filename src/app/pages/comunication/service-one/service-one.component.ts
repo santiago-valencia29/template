@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { routes } from 'src/app/consts'
 import { ApiIntegralPortalService } from '../services/api-integral-portal.service'
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-service-one',
@@ -26,9 +27,19 @@ export class ServiceOneComponent implements OnInit {
   }
 
   getFirebase() {
-    this._jerarquiaService.getDataFirebase().subscribe((x) => {
-      this.heroes = Object.keys(x).map((key) => x[key])
-      console.log(this.heroes)
+    Swal.fire({
+      showConfirmButton: false,
+      allowOutsideClick: false,
+      icon: 'info',
+      html: '<h3 style="color:#000000">Espere por favor...</h3>'
     })
+    Swal.showLoading()
+    setTimeout(() => {
+      this._jerarquiaService.getDataFirebase().subscribe((x) => {
+        this.heroes = Object.keys(x).map((key) => x[key])
+        console.log(this.heroes)
+        Swal.close()
+      })
+    }, 2500)
   }
 }
