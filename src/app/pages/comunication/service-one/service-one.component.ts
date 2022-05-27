@@ -10,7 +10,7 @@ import { ApiIntegralPortalService } from '../services/api-integral-portal.servic
 export class ServiceOneComponent implements OnInit {
   public routes: typeof routes = routes
 
-  data: any
+  heroes: any[] = []
 
   constructor(private _jerarquiaService: ApiIntegralPortalService) {}
 
@@ -27,8 +27,8 @@ export class ServiceOneComponent implements OnInit {
 
   getFirebase() {
     this._jerarquiaService.getDataFirebase().subscribe((x) => {
-      this.data = x
-      console.log(this.data)
+      this.heroes = Object.keys(x).map((key) => x[key])
+      console.log(this.heroes)
     })
   }
 }

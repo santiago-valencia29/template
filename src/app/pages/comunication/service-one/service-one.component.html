@@ -9,4 +9,28 @@
 <div class="p-4" fxLayout="row ">
   <button (click)="getFirebase()" class="btn btn-success">Run Service</button>
 </div>
-<div class="p-3">{{ data | json }}</div>
+<!-- <div class="p-3">{{ data | json }}</div> -->
+
+<div class="p-3">
+  <table class="table table-striped mt-3">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Poder</th>
+        <th scope="col">Vivo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let heroe of heroes; let i = index">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ heroe.nombre }}</td>
+        <td>{{ heroe.poder }}</td>
+        <td>
+          <label *ngIf="heroe.vivo" class="badge bg-primary">Vivo</label>
+          <label *ngIf="!heroe.vivo" class="badge bg-secondary">Muerto</label>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
