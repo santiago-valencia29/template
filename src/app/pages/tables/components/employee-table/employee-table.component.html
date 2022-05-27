@@ -3,7 +3,7 @@
     <p *ngIf="!isShowFilterInput" class="employee-table-wrapper__title">
       Employee List
     </p>
-    <div *ngIf="isShowFilterInput" class="employee-table-wrapper__search">
+    <!-- <div *ngIf="isShowFilterInput" class="employee-table-wrapper__search">
       <div class="employee-table-wrapper__icon-wrapper">
         <mat-icon class="employee-table-wrapper__icon">search</mat-icon>
       </div>
@@ -19,14 +19,14 @@
       >
         <mat-icon class="employee-table-wrapper__icon">close</mat-icon>
       </button>
-    </div>
-    <button
+    </div> -->
+    <!-- <button
       class="employee-table-wrapper__button"
       mat-mini-fab
       (click)="showFilterInput()"
     >
       <mat-icon class="employee-table-wrapper__icon">search</mat-icon>
-    </button>
+    </button> -->
   </mat-card-title>
   <mat-card-content class="employee-table__content">
     <table class="employee-table__table" mat-table [dataSource]="dataSource">
