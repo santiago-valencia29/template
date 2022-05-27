@@ -24,4 +24,10 @@ export class ApiIntegralPortalService {
       { headers: this.headers }
     )
   }
+
+  getDataFirebase(): Observable<any> {
+    return this._http.get('https://angular8-35cb3.firebaseio.com/heroes.json', {
+      headers: this.headers
+    })
+  }
 }

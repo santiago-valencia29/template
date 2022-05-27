@@ -14,10 +14,17 @@ export class ServiceOneComponent implements OnInit {
 
   ngOnInit() {
     this.getJerarquia()
+    this.getFirebase()
   }
 
   getJerarquia() {
     this._jerarquiaService.getProjects().subscribe((x) => {
+      console.log(x)
+    })
+  }
+
+  getFirebase() {
+    this._jerarquiaService.getDataFirebase().subscribe((x) => {
       console.log(x)
     })
   }
