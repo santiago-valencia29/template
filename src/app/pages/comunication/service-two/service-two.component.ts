@@ -15,7 +15,13 @@ export class ServiceTwoComponent implements OnInit {
   ngOnInit() {}
 
   getInfoWithToken() {
-    this._jerarquiaService.getProjects().subscribe((x) => {
+    this._jerarquiaService.getInfoWithToken().subscribe((x) => {
+      console.log(x)
+    })
+  }
+
+  generateToken() {
+    this._jerarquiaService.generateToken().subscribe((x) => {
       console.log(x)
     })
   }
