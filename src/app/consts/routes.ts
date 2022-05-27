@@ -3,8 +3,9 @@ export enum routes {
   TYPOGRAPHY = '/typography',
   TABLES = '/tables',
   NOTIFICATION = '/notification',
-  COMUNICATION_ICONS = '/comunication/icons',
 
-  UI_ELEMENTS_CHARTS = '/ui/charts',
-  UI_ELEMENTS_MAP = '/ui/map'
+  // Module Comunication routes children
+  COMUNICATION_ICONS = '/comunication/icons',
+  COMUNICATION_SER_ONE = '/comunication/service-one',
+  COMUNICATION_SER_TWO = '/comunication/service-two'
 }

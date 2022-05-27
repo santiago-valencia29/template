@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core'
+import { routes } from 'src/app/consts'
 
 @Component({
   selector: 'app-icons-page',
@@ -936,6 +937,7 @@ export class IconsPageComponent implements OnInit {
     'ZoomOut',
     'ZoomOutMap'
   ]
+  public routes: typeof routes = routes
 
   constructor() {}
 

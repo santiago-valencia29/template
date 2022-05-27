@@ -6,13 +6,15 @@ import { ServiceTwoComponent } from './service-two/service-two.component'
 import { SharedModule } from 'src/app/shared/shared.module'
 import { AngularMaterialModule } from 'src/app/app-material.module'
 import { ComunicationRoutingModule } from './comunication-routing.module'
+import { HeaderModule } from 'src/app/shared/header/header.module'
 
 @NgModule({
   imports: [
     CommonModule,
     AngularMaterialModule,
     SharedModule,
-    ComunicationRoutingModule
+    ComunicationRoutingModule,
+    HeaderModule
   ],
   declarations: [IconsPageComponent, ServiceOneComponent, ServiceTwoComponent],
   exports: [IconsPageComponent, ServiceOneComponent, ServiceTwoComponent]

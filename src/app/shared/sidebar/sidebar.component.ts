@@ -8,7 +8,6 @@ import { routes } from 'src/app/consts'
 })
 export class SidebarComponent implements OnInit {
   public routes: typeof routes = routes
-  public isOpenUiElements = false
 
   constructor() {}
 

@@ -3,8 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
-};
+  production: false,
+  urlServer: 'http://localhost:4200',
+  urlJerarquia:
+    'https://apijerarquiaempleados.appsintegral.net:30443/api/HierarchyEmployee/Collaborator'
+}
 
 /*
  * For easier debugging in development mode, you can import the following file

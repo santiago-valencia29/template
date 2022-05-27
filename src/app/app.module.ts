@@ -9,6 +9,7 @@ import { NotificationModule } from './pages/notification/notification.module'
 import { TablesModule } from './pages/tables/tables.module'
 import { TypographyModule } from './pages/typography/typography.module'
 import { ComunicationModule } from './pages/comunication/comunication.module'
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,7 +22,8 @@ import { ComunicationModule } from './pages/comunication/comunication.module'
     NotificationModule,
     TablesModule,
     TypographyModule,
-    ComunicationModule
+    ComunicationModule,
+    HttpClientModule
   ],
   bootstrap: [AppComponent]
 })

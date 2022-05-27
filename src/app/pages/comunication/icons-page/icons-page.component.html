@@ -1,20 +1,21 @@
-<app-layout>
-  <mat-toolbar class="page-header" role="heading">
-    <h1>Icons</h1>
-    <button mat-flat-button color="warn">Actions</button>
-  </mat-toolbar>
+<div class="pb-5" fxLayout="row">
+  <app-header-basic></app-header-basic>
+</div>
+<mat-toolbar class="page-header" role="heading">
+  <h1>Icons</h1>
+  <button routerLink="{{ routes.POPUP }}" mat-flat-button>Volver</button>
+</mat-toolbar>
 
-  <mat-card class="icons-wrapper">
-    <div class="icons-content">
-      <div
-        *ngFor="let iconName of materialIcons"
-        class="icons-content__icon-wrapper"
-      >
-        <mat-icon>{{ toShakeCase(iconName) }}</mat-icon>
-        <span class="icons-content__icon-title">{{ iconName }}</span>
-      </div>
+<mat-card class="icons-wrapper">
+  <div class="icons-content">
+    <div
+      *ngFor="let iconName of materialIcons"
+      class="icons-content__icon-wrapper"
+    >
+      <mat-icon>{{ toShakeCase(iconName) }}</mat-icon>
+      <span class="icons-content__icon-title">{{ iconName }}</span>
     </div>
-  </mat-card>
+  </div>
+</mat-card>
 
-  <app-footer></app-footer>
-</app-layout>
+<app-footer></app-footer>
