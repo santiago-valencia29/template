@@ -21,9 +21,7 @@ export class EmployeeTableComponent implements OnInit {
   public dataSource!: MatTableDataSource<Employee>
   public selection = new SelectionModel<Employee>(true, [])
 
-  public isShowFilterInput = false
-
-  @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator
+  @ViewChild(MatPaginator, { static: false }) paginator!: MatPaginator
 
   constructor() {}
 
@@ -55,15 +53,5 @@ export class EmployeeTableComponent implements OnInit {
     return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${
       row.position + 1
     }`
-  }
-
-  public applyFilter(event: Event): void {
-    const filterValue = (event.target as HTMLInputElement).value
-    this.dataSource.filter = filterValue.trim().toLowerCase()
-  }
-
-  public showFilterInput(): void {
-    this.isShowFilterInput = !this.isShowFilterInput
-    this.dataSource = new MatTableDataSource<Employee>(this.employeeTableData)
   }
 }

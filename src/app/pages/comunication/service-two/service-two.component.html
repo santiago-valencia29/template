@@ -7,6 +7,125 @@
 </mat-toolbar>
 
 <div class="p-4" fxLayout="row ">
-  <button (click)="getInfoWithToken()" class="btn btn-info">Run Service</button>
+  <button (click)="generateToken()" class="btn btn-dark">
+    Generate Token Api Login
+  </button>
 </div>
-<div class="p-3"></div>
+<div class="p-4" fxLayout="row ">
+  <button
+    *ngIf="showButtonRunService"
+    (click)="getInfoWithToken()"
+    class="btn btn-primary"
+  >
+    Run Service Get All Users
+  </button>
+</div>
+<div class="p-3">
+  <mat-card-content class="employee-table__content">
+    <table
+      *ngIf="showButtonRunService && users.length > 0"
+      class="employee-table__table"
+      mat-table
+      [dataSource]="dataSource"
+    >
+      <!-- Checkbox Column -->
+      <ng-container matColumnDef="select">
+        <th
+          class="employee-table__table-checkbox"
+          mat-header-cell
+          *matHeaderCellDef
+        >
+          <mat-checkbox
+            color="primary"
+            (change)="$event ? masterToggle() : null"
+            [checked]="selection.hasValue() && isAllSelected()"
+            [indeterminate]="selection.hasValue() && !isAllSelected()"
+            [aria-label]="checkboxLabel()"
+          >
+          </mat-checkbox>
+        </th>
+        <td
+          class="employee-table__table-checkbox"
+          mat-cell
+          *matCellDef="let row"
+        >
+          <mat-checkbox
+            color="primary"
+            (click)="$event.stopPropagation()"
+            (change)="$event ? selection.toggle(row) : null"
+            [checked]="selection.isSelected(row)"
+            [aria-label]="checkboxLabel(row)"
+          >
+          </mat-checkbox>
+        </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="document">
+        <th
+          class="employee-table__table-header"
+          mat-header-cell
+          *matHeaderCellDef
+        >
+          Documento
+        </th>
+        <td
+          class="employee-table__table-body"
+          mat-cell
+          *matCellDef="let element"
+        >
+          {{ element.document }}
+        </td>
+      </ng-container>
+
+      <!-- Company Column -->
+      <ng-container matColumnDef="fullName">
+        <th
+          class="employee-table__table-header"
+          mat-header-cell
+          *matHeaderCellDef
+        >
+          Nombres
+        </th>
+        <td
+          class="employee-table__table-body"
+          mat-cell
+          *matCellDef="let element"
+        >
+          {{ element.fullName }}
+        </td>
+      </ng-container>
+
+      <!-- City Column -->
+      <ng-container matColumnDef="email">
+        <th
+          class="employee-table__table-header"
+          mat-header-cell
+          *matHeaderCellDef
+        >
+          Correo
+        </th>
+        <td
+          class="employee-table__table-body"
+          mat-cell
+          *matCellDef="let element"
+        >
+          {{ element.email }}
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr
+        mat-row
+        *matRowDef="let row; columns: displayedColumns"
+        (click)="selection.toggle(row)"
+      ></tr>
+    </table>
+  </mat-card-content>
+  <div [hidden]="!showPagination" class="pagination">
+    <mat-paginator
+      [pageSizeOptions]="[10, 15, 100]"
+      showFirstLastButtons
+    ></mat-paginator>
+  </div>
+</div>

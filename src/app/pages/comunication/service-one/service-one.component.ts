@@ -15,16 +15,7 @@ export class ServiceOneComponent implements OnInit {
 
   constructor(private _jerarquiaService: ApiIntegralPortalService) {}
 
-  ngOnInit() {
-    this.getLeader()
-    // this.getFirebase()
-  }
-
-  getLeader() {
-    this._jerarquiaService.getLeader().subscribe((x) => {
-      console.log(x)
-    })
-  }
+  ngOnInit() {}
 
   getFirebase() {
     Swal.fire({

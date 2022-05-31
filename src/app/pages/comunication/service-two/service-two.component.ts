@@ -1,6 +1,16 @@
-import { Component, OnInit } from '@angular/core'
+import { SelectionModel } from '@angular/cdk/collections'
+import { Component, OnInit, ViewChild } from '@angular/core'
+import { MatPaginator } from '@angular/material/paginator'
+import { MatTableDataSource } from '@angular/material/table'
 import { routes } from 'src/app/consts'
+import Swal from 'sweetalert2'
 import { ApiIntegralPortalService } from '../services/api-integral-portal.service'
+
+export interface User {
+  document: string
+  fullname: number
+  email: number
+}
 
 @Component({
   selector: 'app-service-two',
@@ -9,20 +19,89 @@ import { ApiIntegralPortalService } from '../services/api-integral-portal.servic
 })
 export class ServiceTwoComponent implements OnInit {
   public routes: typeof routes = routes
+  token = ''
+  showButtonRunService = false
+  showPagination = false
+  users: User[] = []
+  public displayedColumns: string[] = [
+    'select',
+    'document',
+    'fullName',
+    'email'
+  ]
+
+  public dataSource!: MatTableDataSource<User>
+  public selection = new SelectionModel<User>(true, [])
+
+  @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator
 
   constructor(private _jerarquiaService: ApiIntegralPortalService) {}
 
   ngOnInit() {}
 
-  getInfoWithToken() {
-    this._jerarquiaService.getInfoWithToken().subscribe((x) => {
-      console.log(x)
+  generateToken() {
+    Swal.fire({
+      showConfirmButton: false,
+      allowOutsideClick: false,
+      icon: 'info',
+      html: '<h3 style="color:#000000">Espere por favor...</h3>'
+    })
+    Swal.showLoading()
+    this._jerarquiaService.generateToken().subscribe((x) => {
+      this.token = x.result.token
+      localStorage.setItem('token', this.token)
+      console.log(x.result.token)
+      Swal.close()
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Token Generado',
+        showConfirmButton: false,
+        timer: 2000
+      })
+      this.showButtonRunService = true
     })
   }
 
-  generateToken() {
-    this._jerarquiaService.generateToken().subscribe((x) => {
-      console.log(x)
+  getInfoWithToken() {
+    Swal.fire({
+      showConfirmButton: false,
+      allowOutsideClick: false,
+      icon: 'info',
+      html: '<h3 style="color:#000000">Espere por favor...</h3>'
     })
+    Swal.showLoading()
+    this._jerarquiaService.getInfoWithToken(this.token).subscribe((x: any) => {
+      this.users = x.result
+      console.log(x.result)
+      this.showPagination = true
+      this.dataSource = new MatTableDataSource<User>(this.users)
+      this.dataSource.paginator = this.paginator
+      Swal.close()
+    })
+  }
+
+  /** Whether the number of selected elements matches the total number of rows. */
+  public isAllSelected(): boolean {
+    const numSelected = this.selection.selected.length
+    const numRows = this.dataSource.data.length
+    return numSelected === numRows
+  }
+
+  /** Selects all rows if they are not all selected; otherwise clear selection. */
+  public masterToggle(): void {
+    this.isAllSelected()
+      ? this.selection.clear()
+      : this.dataSource.data.forEach((row) => this.selection.select(row))
+  }
+
+  /** The label for the checkbox on the passed row */
+  public checkboxLabel(row?: any): string {
+    if (!row) {
+      return `${this.isAllSelected() ? 'select' : 'deselect'} all`
+    }
+    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${
+      row.position + 1
+    }`
   }
 }
