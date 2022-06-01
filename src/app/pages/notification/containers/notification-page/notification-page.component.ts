@@ -11,6 +11,8 @@ export class NotificationPageComponent implements OnInit {
 
   ngOnInit() {}
 
+  //Example Methods,in development use the generic service "SwalAlertService" Folder Shared
+
   error() {
     Swal.fire({
       icon: 'error',
