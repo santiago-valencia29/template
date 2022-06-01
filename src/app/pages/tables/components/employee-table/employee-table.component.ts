@@ -21,7 +21,7 @@ export class EmployeeTableComponent implements OnInit {
   public dataSource!: MatTableDataSource<Employee>
   public selection = new SelectionModel<Employee>(true, [])
 
-  @ViewChild(MatPaginator, { static: false }) paginator!: MatPaginator
+  @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator
 
   constructor() {}
 
