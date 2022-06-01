@@ -80,12 +80,13 @@ export class NotificationPageComponent implements OnInit {
     Swal.fire({
       text: 'Toast with custom target',
       target: '#custom-target',
+      icon: 'error',
       customClass: {
         container: 'position-absolute'
       },
       toast: true,
-      position: 'bottom-right',
-      timer: 1800
+      position: 'top-right'
+      // timer: 5000
     })
   }
 }
