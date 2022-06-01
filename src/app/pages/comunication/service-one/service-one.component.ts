@@ -26,7 +26,7 @@ export class ServiceOneComponent implements OnInit {
       this._jerarquiaService.getDataFirebase().subscribe((x) => {
         this.heroes = Object.keys(x).map((key) => x[key])
         console.log(this.heroes)
-        this._swalAlert.swalClose()
+        this._swalAlert.swalAlertClose()
       })
     }, 2500)
   }

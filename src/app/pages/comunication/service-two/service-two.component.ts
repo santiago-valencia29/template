@@ -3,7 +3,7 @@ import { Component, OnInit, ViewChild } from '@angular/core'
 import { MatPaginator } from '@angular/material/paginator'
 import { MatTableDataSource } from '@angular/material/table'
 import { routes } from 'src/app/consts'
-import Swal from 'sweetalert2'
+import { SwalAlertService } from 'src/app/shared/swal-alert/swal-alert.service'
 import { ApiIntegralPortalService } from '../services/api-integral-portal.service'
 
 export interface User {
@@ -35,49 +35,34 @@ export class ServiceTwoComponent implements OnInit {
 
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator
 
-  constructor(private _jerarquiaService: ApiIntegralPortalService) {}
+  constructor(
+    private _jerarquiaService: ApiIntegralPortalService,
+    private _swalAlert: SwalAlertService
+  ) {}
 
   ngOnInit() {}
 
   generateToken() {
-    Swal.fire({
-      showConfirmButton: false,
-      allowOutsideClick: false,
-      icon: 'info',
-      html: '<h3 style="color:#000000">Espere por favor...</h3>'
-    })
-    Swal.showLoading()
+    this._swalAlert.loading('Espere por favor...', 'info')
     this._jerarquiaService.generateToken().subscribe((x) => {
       this.token = x.result.token
       localStorage.setItem('token', this.token)
       console.log(x.result.token)
-      Swal.close()
-      Swal.fire({
-        position: 'top-end',
-        icon: 'success',
-        title: 'Token Generado',
-        showConfirmButton: false,
-        timer: 2000
-      })
+      this._swalAlert.swalAlertClose()
+      this._swalAlert.alertTopEnd('Token Generado', 'success', 2000)
       this.showButtonRunService = true
     })
   }
 
   getInfoWithToken() {
-    Swal.fire({
-      showConfirmButton: false,
-      allowOutsideClick: false,
-      icon: 'info',
-      html: '<h3 style="color:#000000">Espere por favor...</h3>'
-    })
-    Swal.showLoading()
+    this._swalAlert.loading('Espere por favor...', 'info')
     this._jerarquiaService.getInfoWithToken(this.token).subscribe((x: any) => {
       this.users = x.result
       console.log(x.result)
       this.showPagination = true
       this.dataSource = new MatTableDataSource<User>(this.users)
       this.dataSource.paginator = this.paginator
-      Swal.close()
+      this._swalAlert.swalAlertClose()
     })
   }
 

@@ -15,7 +15,7 @@ export class SwalAlertService {
 
   constructor() {}
 
-  swalClose() {
+  swalAlertClose() {
     Swal.close()
   }
 
@@ -27,5 +27,15 @@ export class SwalAlertService {
       html: `<h3 style="color:#000000">${message}</h3>`
     })
     Swal.showLoading()
+  }
+
+  alertTopEnd(message: string, icon: any, timer: number) {
+    Swal.fire({
+      position: 'top-end',
+      icon: icon,
+      title: message,
+      showConfirmButton: false,
+      timer: timer
+    })
   }
 }
