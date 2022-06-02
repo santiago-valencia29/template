@@ -24,7 +24,8 @@ export class SwalAlertService {
       showConfirmButton: false,
       allowOutsideClick: false,
       icon: icon,
-      html: `<h3 style="color:#000000">${message}</h3>`
+      html: `<h3 style="color:#000000">${message}</h3>`,
+      position: 'top'
     })
     Swal.showLoading()
   }
