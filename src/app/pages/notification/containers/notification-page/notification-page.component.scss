@@ -2,10 +2,13 @@
 @import 'src/app/styles/colors';
 @import 'src/app/styles/font';
 
-#custom-target {
+#custom-target1 {
   position: relative;
-  width: 600px;
-  height: 300px;
+  border-style: solid;
+}
+
+#custom-target2 {
+  position: relative;
   border-style: solid;
 }
 

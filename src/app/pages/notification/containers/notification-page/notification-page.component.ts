@@ -11,8 +11,6 @@ export class NotificationPageComponent implements OnInit {
 
   ngOnInit() {}
 
-  //Example Methods,in development use the generic service "SwalAlertService" Folder Shared
-
   error() {
     Swal.fire({
       icon: 'error',
@@ -63,7 +61,7 @@ export class NotificationPageComponent implements OnInit {
 
   info() {
     Swal.fire({
-      position: 'top',
+      position: 'top-end',
       title: '<strong>HTML <u>example</u></strong>',
       icon: 'info',
       html:
@@ -71,6 +69,7 @@ export class NotificationPageComponent implements OnInit {
         '<a href="//sweetalert2.github.io">links</a> ' +
         'and other HTML tags',
       showCloseButton: true,
+      target: '#myDiv',
       showCancelButton: true,
       focusConfirm: false
     })
@@ -79,17 +78,42 @@ export class NotificationPageComponent implements OnInit {
   toast() {
     Swal.fire({
       text: 'Toast with custom target',
-      target: '#custom-target',
       icon: 'info',
+      toast: true,
+      position: 'top-end',
+      showCloseButton: true,
+      showConfirmButton: false,
+      timer: 5000
+    })
+  }
+
+  toastTargetTopEnd() {
+    Swal.fire({
+      text: 'Toast with custom target',
+      target: '#custom-target1',
+      icon: 'error',
       customClass: {
         container: 'position-absolute'
       },
       toast: true,
-      position: 'top-right',
+      position: 'top-end',
       showCloseButton: true,
       showConfirmButton: false
+    })
+  }
 
-      // timer: 5000
+  toastTargetBottomLeft() {
+    Swal.fire({
+      text: 'Toast with custom target',
+      target: '#custom-target2',
+      icon: 'error',
+      customClass: {
+        container: 'position-absolute'
+      },
+      toast: true,
+      position: 'bottom-left',
+      showCloseButton: true,
+      showConfirmButton: false
     })
   }
 }
