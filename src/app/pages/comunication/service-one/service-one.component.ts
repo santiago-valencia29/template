@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { routes } from 'src/app/consts'
+import { SwalAlertService } from 'src/app/shared/services/swal-alert.service'
 import { ApiIntegralPortalService } from '../services/api-integral-portal.service'
-import { SwalAlertService } from 'src/app/shared/swal-alert/swal-alert.service'
 
 @Component({
   selector: 'app-service-one',

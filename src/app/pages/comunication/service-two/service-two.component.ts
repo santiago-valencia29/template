@@ -3,7 +3,7 @@ import { Component, OnInit, ViewChild } from '@angular/core'
 import { MatPaginator } from '@angular/material/paginator'
 import { MatTableDataSource } from '@angular/material/table'
 import { routes } from 'src/app/consts'
-import { SwalAlertService } from 'src/app/shared/swal-alert/swal-alert.service'
+import { SwalAlertService } from 'src/app/shared/services/swal-alert.service'
 import { ApiIntegralPortalService } from '../services/api-integral-portal.service'
 
 export interface User {
