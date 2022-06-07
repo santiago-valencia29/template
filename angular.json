@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "WebAngularPortalEmpleadosTest": {
+    "WebAngularPortalEmpleados": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/WebAngularPortalEmpleadosTest",
+            "outputPath": "dist/WebAngularPortalEmpleados",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -72,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "WebAngularPortalEmpleadosTest:build:production"
+              "browserTarget": "WebAngularPortalEmpleados:build:production"
             },
             "development": {
-              "browserTarget": "WebAngularPortalEmpleadosTest:build:development"
+              "browserTarget": "WebAngularPortalEmpleados:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "WebAngularPortalEmpleadosTest:build"
+            "browserTarget": "WebAngularPortalEmpleados:build"
           }
         },
         "test": {
@@ -107,5 +107,5 @@
       }
     }
   },
-  "defaultProject": "WebAngularPortalEmpleadosTest"
+  "defaultProject": "WebAngularPortalEmpleados"
 }
