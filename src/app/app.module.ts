@@ -10,8 +10,7 @@ import { TablesModule } from './pages/tables/tables.module'
 import { TypographyModule } from './pages/typography/typography.module'
 import { ComunicationModule } from './pages/comunication/comunication.module'
 import { HttpClientModule } from '@angular/common/http'
-import { CalendarModule, DateAdapter } from 'angular-calendar'
-import { adapterFactory } from 'angular-calendar/date-adapters/date-fns'
+import { FlatpickrModule } from 'angularx-flatpickr'
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,11 +24,7 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns'
     TablesModule,
     TypographyModule,
     ComunicationModule,
-    HttpClientModule,
-    CalendarModule.forRoot({
-      provide: DateAdapter,
-      useFactory: adapterFactory
-    })
+    HttpClientModule
   ],
   bootstrap: [AppComponent]
 })

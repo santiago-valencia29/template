@@ -8,14 +8,26 @@ import { AngularMaterialModule } from 'src/app/app-material.module'
 import { ComunicationRoutingModule } from './comunication-routing.module'
 import { HeaderModule } from 'src/app/shared/header/header.module'
 import { CalendarComponent } from './calendar/calendar.component'
+import { CalendarModule, DateAdapter } from 'angular-calendar'
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns'
+import { FormsModule } from '@angular/forms'
+import { FlatpickrModule } from 'angularx-flatpickr'
+import { ModalModule } from 'ngx-bootstrap/modal'
 
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
     AngularMaterialModule,
     SharedModule,
     ComunicationRoutingModule,
-    HeaderModule
+    HeaderModule,
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory
+    }),
+    ModalModule.forRoot(),
+    FlatpickrModule.forRoot()
   ],
   declarations: [
     CalendarComponent,
@@ -23,6 +35,11 @@ import { CalendarComponent } from './calendar/calendar.component'
     ServiceOneComponent,
     ServiceTwoComponent
   ],
-  exports: [IconsPageComponent, ServiceOneComponent, ServiceTwoComponent]
+  exports: [
+    CalendarComponent,
+    IconsPageComponent,
+    ServiceOneComponent,
+    ServiceTwoComponent
+  ]
 })
 export class ComunicationModule {}
