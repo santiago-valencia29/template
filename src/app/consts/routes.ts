@@ -5,6 +5,7 @@ export enum routes {
   NOTIFICATION = '/notification',
 
   // Module Comunication routes children
+  COMUNICATION_CALENDAR = '/comunication/calendar',
   COMUNICATION_ICONS = '/comunication/icons',
   COMUNICATION_SER_ONE = '/comunication/service-one',
   COMUNICATION_SER_TWO = '/comunication/service-two'

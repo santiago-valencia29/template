@@ -7,6 +7,7 @@ import { SharedModule } from 'src/app/shared/shared.module'
 import { AngularMaterialModule } from 'src/app/app-material.module'
 import { ComunicationRoutingModule } from './comunication-routing.module'
 import { HeaderModule } from 'src/app/shared/header/header.module'
+import { CalendarComponent } from './calendar/calendar.component'
 
 @NgModule({
   imports: [
@@ -16,7 +17,12 @@ import { HeaderModule } from 'src/app/shared/header/header.module'
     ComunicationRoutingModule,
     HeaderModule
   ],
-  declarations: [IconsPageComponent, ServiceOneComponent, ServiceTwoComponent],
+  declarations: [
+    CalendarComponent,
+    IconsPageComponent,
+    ServiceOneComponent,
+    ServiceTwoComponent
+  ],
   exports: [IconsPageComponent, ServiceOneComponent, ServiceTwoComponent]
 })
 export class ComunicationModule {}

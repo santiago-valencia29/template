@@ -4,8 +4,13 @@ import { NgModule } from '@angular/core'
 import { IconsPageComponent } from './icons-page/icons-page.component'
 import { ServiceOneComponent } from './service-one/service-one.component'
 import { ServiceTwoComponent } from './service-two/service-two.component'
+import { CalendarComponent } from './calendar/calendar.component'
 
 const routes: Routes = [
+  {
+    path: 'calendar',
+    component: CalendarComponent
+  },
   {
     path: 'icons',
     component: IconsPageComponent
