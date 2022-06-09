@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { routes } from 'src/app/consts'
+import { StorageService } from 'src/app/shared/services'
 import { SwalAlertService } from 'src/app/shared/services/swal-alert.service'
 import { ApiIntegralPortalService } from '../services/api-integral-portal.service'
 
@@ -15,10 +16,13 @@ export class ServiceOneComponent implements OnInit {
 
   constructor(
     private _jerarquiaService: ApiIntegralPortalService,
-    private _swalAlert: SwalAlertService
+    private _swalAlert: SwalAlertService,
+    private _crypto: StorageService
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this._crypto.decrypt())
+  }
 
   getFirebase() {
     this._swalAlert.loading('Espere por favor...', 'info')
