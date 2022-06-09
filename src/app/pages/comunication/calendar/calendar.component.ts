@@ -45,13 +45,12 @@ const colors: any = {
   styleUrls: ['./calendar.component.scss']
 })
 export class CalendarComponent implements OnInit {
-  @ViewChild('modalContent', { static: true }) modalContent!: TemplateRef<any>
-
   locale: string = 'es-CO'
-
   view: CalendarView = CalendarView.Week
   CalendarView = CalendarView
   viewDate: Date = new Date()
+
+  @ViewChild('modalContent', { static: true }) modalContent!: TemplateRef<any>
   modalData!: {
     action: string
     event: CalendarEvent
