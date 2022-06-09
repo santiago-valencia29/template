@@ -13,6 +13,9 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns'
 import { FormsModule } from '@angular/forms'
 import { FlatpickrModule } from 'angularx-flatpickr'
 import { ModalModule } from 'ngx-bootstrap/modal'
+import { registerLocaleData } from '@angular/common'
+import localeCO from '@angular/common/locales/es-CO'
+registerLocaleData(localeCO)
 
 @NgModule({
   imports: [

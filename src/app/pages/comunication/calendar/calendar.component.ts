@@ -23,11 +23,6 @@ import {
   CalendarEventTimesChangedEvent,
   CalendarView
 } from 'angular-calendar'
-import { registerLocaleData } from '@angular/common'
-import localeEs from '@angular/common/locales/es'
-
-registerLocaleData(localeEs)
-
 const colors: any = {
   red: {
     primary: '#ad2121',
@@ -52,7 +47,9 @@ const colors: any = {
 export class CalendarComponent implements OnInit {
   @ViewChild('modalContent', { static: true }) modalContent!: TemplateRef<any>
 
-  view: CalendarView = CalendarView.Month
+  locale: string = 'es-CO'
+
+  view: CalendarView = CalendarView.Week
   CalendarView = CalendarView
   viewDate: Date = new Date()
   modalData!: {
@@ -160,6 +157,7 @@ export class CalendarComponent implements OnInit {
 
   handleEvent(action: string, event: CalendarEvent): void {
     this.modalData = { event, action }
+    console.log(this.modalData)
     // this.modal.open(this.modalContent, { size: 'lg' });
   }
 
