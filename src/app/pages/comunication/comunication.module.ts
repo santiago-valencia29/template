@@ -10,17 +10,21 @@ import { HeaderModule } from 'src/app/shared/header/header.module'
 import { CalendarComponent } from './calendar/calendar.component'
 import { CalendarModule, DateAdapter } from 'angular-calendar'
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns'
-import { FormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { FlatpickrModule } from 'angularx-flatpickr'
 import { ModalModule } from 'ngx-bootstrap/modal'
 import { registerLocaleData } from '@angular/common'
 import localeCO from '@angular/common/locales/es-CO'
+import { FilterComponent } from './calendar/filter/filter.component'
+import { MAT_DATE_LOCALE } from '@angular/material/core'
+
 registerLocaleData(localeCO)
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     AngularMaterialModule,
     SharedModule,
     ComunicationRoutingModule,
@@ -33,16 +37,19 @@ registerLocaleData(localeCO)
     FlatpickrModule.forRoot()
   ],
   declarations: [
+    FilterComponent,
     CalendarComponent,
     IconsPageComponent,
     ServiceOneComponent,
     ServiceTwoComponent
   ],
   exports: [
+    FilterComponent,
     CalendarComponent,
     IconsPageComponent,
     ServiceOneComponent,
     ServiceTwoComponent
-  ]
+  ],
+  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'es-CO' }]
 })
 export class ComunicationModule {}
