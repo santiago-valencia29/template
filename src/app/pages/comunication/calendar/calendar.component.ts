@@ -2,8 +2,6 @@ import {
   Component,
   OnInit,
   ChangeDetectionStrategy,
-  ViewChild,
-  TemplateRef,
   ViewEncapsulation
 } from '@angular/core'
 import {
@@ -17,7 +15,6 @@ import {
   addHours
 } from 'date-fns'
 import { Subject } from 'rxjs'
-import { BsModalService, BsModalRef, ModalOptions } from 'ngx-bootstrap/modal'
 import {
   CalendarEvent,
   CalendarEventAction,
@@ -26,6 +23,8 @@ import {
   CalendarView
 } from 'angular-calendar'
 import { CustomEventTitleFormatter } from './utils/custom-event-title-formatter.provider'
+import { MatDialog } from '@angular/material/dialog'
+import { RecordTimeComponent } from './record-time/record-time.component'
 const colors: any = {
   evento: {
     primary: '#ad2121',
@@ -73,9 +72,32 @@ export class CalendarComponent implements OnInit {
   view: CalendarView = CalendarView.Week
   CalendarView = CalendarView
   viewDate: Date = new Date()
+  activeDayIsOpen: boolean = true
 
-  @ViewChild('modalContent', { static: true }) modalContent!: TemplateRef<any>
-  modalData!: {
+  constructor(public dialog: MatDialog) {}
+
+  ngOnInit() {
+    console.log(this.events[2].start)
+  }
+
+  refresh = new Subject<void>()
+
+  openPopUp(modalData?: any) {
+    const dialogRef = this.dialog.open(RecordTimeComponent, {
+      // width: '600px',
+      data: modalData
+      // backdropClass: 'backdropBackground'
+    })
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result === true) {
+        this.addEvent()
+      } else {
+        return
+      }
+    })
+  }
+
+  modalData: {
     action: string
     event: CalendarEvent
   }
@@ -86,6 +108,7 @@ export class CalendarComponent implements OnInit {
       a11yLabel: 'Edit',
       onClick: ({ event }: { event: CalendarEvent }): void => {
         this.handleEvent('Edited', event)
+        this.openPopUp(this.modalData)
       }
     },
     {
@@ -98,15 +121,13 @@ export class CalendarComponent implements OnInit {
     }
   ]
 
-  refresh = new Subject<void>()
-
   events: CalendarEvent[] = [
     {
       start: new Date('2022-06-06T02:24'),
       end: new Date('2022-06-06T02:24'),
       title: 'Evento Integral',
       color: colors.evento,
-      actions: this.actions,
+      // actions: this.actions,
       allDay: true,
       meta: {
         project: '',
@@ -201,69 +222,36 @@ export class CalendarComponent implements OnInit {
     }
   ]
 
-  activeDayIsOpen: boolean = true
-
-  constructor(private modalService: BsModalService) {}
-  ngOnInit() {
-    console.log(this.events[2].start)
-  }
-
   getDifferenceHours(start: Date, end: Date): string {
     let difference = Math.abs(start.getTime() - end.getTime())
     let totalHours = difference / (60 * 60 * 1000)
     return totalHours.toString() + ' Horas'
   }
 
-  dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
-    if (isSameMonth(date, this.viewDate)) {
-      if (
-        (isSameDay(this.viewDate, date) && this.activeDayIsOpen === true) ||
-        events.length === 0
-      ) {
-        this.activeDayIsOpen = false
-      } else {
-        this.activeDayIsOpen = true
-      }
-      this.viewDate = date
-    }
-  }
-
-  eventTimesChanged({
-    event,
-    newStart,
-    newEnd
-  }: CalendarEventTimesChangedEvent): void {
-    this.events = this.events.map((iEvent) => {
-      if (iEvent === event) {
-        return {
-          ...event,
-          start: newStart,
-          end: newEnd
-        }
-      }
-      return iEvent
-    })
-    this.handleEvent('Dropped or resized', event)
-  }
-
   handleEvent(action: string, event: CalendarEvent): void {
     this.modalData = { event, action }
-    console.log(this.modalData)
-    // this.modal.open(this.modalContent, { size: 'lg' });
+    // console.log(this.modalData)
   }
 
   addEvent(): void {
     this.events = [
       ...this.events,
       {
-        title: 'New event',
-        start: startOfDay(new Date()),
-        end: endOfDay(new Date()),
-        color: colors.red,
-        draggable: true,
-        resizable: {
-          beforeStart: true,
-          afterEnd: true
+        start: new Date('2022-06-11T8:00'),
+        end: new Date('2022-06-11T10:00'),
+        title: 'METRO CABLE',
+        color: colors.hOrdinarias,
+        cssClass: 'hExtrasDiurnas',
+        actions: this.actions,
+        meta: {
+          project: 'METRO CABLE',
+          activity: 'Coordinación',
+          hours: this.getDifferenceHours(
+            new Date('2022-06-11T8:00'),
+            new Date('2022-06-11T10:00')
+          ),
+          hourType: 'Horas Ordinarias',
+          description: ''
         }
       }
     ]
@@ -273,12 +261,44 @@ export class CalendarComponent implements OnInit {
     this.events = this.events.filter((event) => event !== eventToDelete)
   }
 
-  setView(view: CalendarView) {
-    this.view = view
-  }
-
   closeOpenMonthViewDay() {
     this.activeDayIsOpen = false
     console.log('total-Horas')
   }
+
+  // dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
+  //   if (isSameMonth(date, this.viewDate)) {
+  //     if (
+  //       (isSameDay(this.viewDate, date) && this.activeDayIsOpen === true) ||
+  //       events.length === 0
+  //     ) {
+  //       this.activeDayIsOpen = false
+  //     } else {
+  //       this.activeDayIsOpen = true
+  //     }
+  //     this.viewDate = date
+  //   }
+  // }
+
+  // eventTimesChanged({
+  //   event,
+  //   newStart,
+  //   newEnd
+  // }: CalendarEventTimesChangedEvent): void {
+  //   this.events = this.events.map((iEvent) => {
+  //     if (iEvent === event) {
+  //       return {
+  //         ...event,
+  //         start: newStart,
+  //         end: newEnd
+  //       }
+  //     }
+  //     return iEvent
+  //   })
+  //   this.handleEvent('Dropped or resized', event)
+  // }
+
+  // setView(view: CalendarView) {
+  //   this.view = view
+  // }
 }

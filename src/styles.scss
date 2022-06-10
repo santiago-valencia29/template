@@ -154,46 +154,45 @@ button.mat-menu-item:hover:not([disabled]),
   font-size: 16px;
 }
 
-// mat-select.mat-select {
-//   width: auto;
-//   display: inline;
-//   font-size: 16px;
-//   font-weight: 300;
-//   color: $dark-grey;
-//   border: 1px solid $light-grey;
-//   border-radius: 4px;
-//   padding: 8px 10px;
+mat-select.mat-select {
+  & .mat-select-arrow {
+    color: $light-grey;
+  }
+}
 
-//   & .mat-select-value {
-//     width: auto;
-//     display: inline;
-//   }
+.mat-calendar-body-selected {
+  background-color: $green-integral-secundary;
+  color: white;
+}
 
-//   & .mat-select-arrow {
-//     color: $light-grey;
-//     margin-right: 0;
-//   }
-// }
+.mat-datepicker-toggle-active {
+  color: $green-integral-secundary;
+}
 
-// .mat-option {
-//   font-size: 16px;
-//   height: 36px;
-//   padding: 6px 16px;
-//   color: $dark-grey;
+.mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+  color: $green-integral-secundary;
+}
 
-//   &.mat-focus-indicator.mat-selected.mat-active {
-//     background-color: $blue-white;
-//     color: $dark-grey;
-//   }
+.mat-option {
+  color: $dark-grey;
 
-//   &:hover:not(.mat-option-disabled) {
-//     background-color: $blue-white;
-//   }
-// }
+  &.mat-focus-indicator.mat-selected.mat-active {
+    background-color: $blue-white;
+    color: $green-integral-secundary;
+  }
 
-// .mat-form-field-underline {
-//   display: none;
-// }
+  &:hover:not(.mat-option-disabled) {
+    background-color: $blue-white;
+  }
+}
+
+.mat-focused .mat-form-field-label {
+  color: $green-integral-secundary !important;
+}
+
+.mat-form-field-ripple {
+  background-color: $green-integral-secundary !important;
+}
 
 html,
 body {
@@ -391,7 +390,4 @@ div.apexcharts-xaxistooltip-bottom:after {
 }
 ::-webkit-scrollbar-corner {
   background-color: $scrollbar-corner-color;
-}
-::-webkit-resizer {
-  background-color: $dark-grey;
 }

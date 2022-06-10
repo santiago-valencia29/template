@@ -1,0 +1,68 @@
+<div class="p-2" fxLayout="row" fxLayoutAlign="center center">
+  <h3 mat-dialog-title>Registrar horas</h3>
+</div>
+<div fxLayout="row" fxLayoutGap="20">
+  <div fxLayout="column">
+    <mat-form-field appearance="fill">
+      <mat-label>Tipo de Proyecto</mat-label>
+      <mat-select>
+        <mat-option value="1">Primavera</mat-option>
+        <mat-option value="2">Extra Proyecto</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Proyecto</mat-label>
+      <mat-select>
+        <mat-option value="1"
+          >[0010162] 037 - ELECTROMEC TUNEL LA LINEA</mat-option
+        >
+        <mat-option value="2">[0010162] 037 - METRO CABLE</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Actividad</mat-label>
+      <mat-select>
+        <mat-option value="1">001016204110 - COORDINACION</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Seleccionar fecha</mat-label>
+      <input matInput [matDatepicker]="picker" />
+      <mat-hint>DD/MM/YYYY</mat-hint>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </div>
+  <div fxLayout="column">
+    <mat-form-field appearance="fill">
+      <mat-label>Tipo Hora</mat-label>
+      <mat-select>
+        <mat-option value="1">Horas ordinarias</mat-option>
+        <mat-option value="2">Horas extras diurnas</mat-option>
+        <mat-option value="3">Horas ordinarias nocturnas</mat-option>
+        <mat-option value="4">Horas extras nocturnas</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Hora Inicio</mat-label>
+      <input type="time" matInput />
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Hora Fin</mat-label>
+      <input type="time" matInput />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Nota</mat-label>
+      <textarea matInput></textarea>
+    </mat-form-field>
+  </div>
+</div>
+
+<div fxLayout="row" fxLayoutAlign="center center" mat-dialog-actions>
+  <button class="m-1" mat-raised-button (click)="onClose()">Cancelar</button>
+  <button class="m-1" color="primary" (click)="onSave()" mat-flat-button>
+    Guardar
+  </button>
+</div>

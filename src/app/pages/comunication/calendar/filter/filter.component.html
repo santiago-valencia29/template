@@ -1,34 +1,21 @@
-<div class="m-2" fxLayout="row">
-  <h3>Reporte de tiempo</h3>
-  <form fxFlex class="m-3 example-form">
-    <mat-form-field appearance="fill" class="example-form-field">
-      <mat-label>Fecha</mat-label>
-      <input matInput [matDatepicker]="datepicker" [formControl]="date" />
-      <mat-hint>DD/MM/YYYY</mat-hint>
-      <mat-datepicker-toggle
-        matSuffix
-        [for]="datepicker"
-      ></mat-datepicker-toggle>
-      <mat-datepicker #datepicker>
-        <mat-datepicker-actions>
-          <button mat-button matDatepickerCancel>Cancelar</button>
-          <button mat-raised-button color="primary" matDatepickerApply>
-            Seleccionar
-          </button>
-        </mat-datepicker-actions>
-      </mat-datepicker>
-    </mat-form-field>
-
-    <mat-form-field appearance="fill">
-      <mat-label>Cédula</mat-label>
-      <input matInput value="1017589963" />
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-      <mat-label>Nombre</mat-label>
-      <input matInput disabled value="Juan Perez" />
-    </mat-form-field>
-    <button mat-flat-button class="btn btn-outline-secondary m-2">
-      Buscar
-    </button>
-  </form>
+<div fxLayout="row">
+  <h3 class="p-2">Registro de horas</h3>
 </div>
+<form class="example-form">
+  <mat-form-field appearance="fill">
+    <mat-label>Seleccionar fecha</mat-label>
+    <input matInput [matDatepicker]="picker" [formControl]="date" />
+    <mat-hint>DD/MM/YYYY</mat-hint>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Cédula</mat-label>
+    <input matInput value="1017589963" />
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Nombre</mat-label>
+    <input matInput disabled value="Juan Perez" />
+  </mat-form-field>
+  <button mat-flat-button class="btn btn-outline-secondary m-2">Buscar</button>
+</form>

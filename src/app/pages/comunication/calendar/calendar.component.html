@@ -11,6 +11,7 @@
           [(viewDate)]="viewDate"
           (viewDateChange)="closeOpenMonthViewDay()"
         >
+          <mat-icon>navigate_before</mat-icon>
           Anterior
         </button>
         <button mat-flat-button mwlCalendarToday [(viewDate)]="viewDate">
@@ -25,6 +26,7 @@
           (viewDateChange)="closeOpenMonthViewDay()"
         >
           Siguiente
+          <mat-icon>navigate_next</mat-icon>
         </button>
       </div>
     </div>
@@ -35,14 +37,14 @@
     </div>
     <div class="col-md-4">
       <button mat-flat-button class="btn btn-outline-secondary m-2">
-        Ver Resumen
+        Ver resumen
       </button>
       <button
+        (click)="openPopUp()"
         mat-flat-button
         class="btn btn-outline-secondary ml-2"
-        (click)="addEvent()"
       >
-        Registrar Tiempo
+        Registrar horas
       </button>
     </div>
   </div>
@@ -58,7 +60,6 @@
       [locale]="locale"
       [hourSegments]="1"
       (eventClicked)="handleEvent('Clicked', $event.event)"
-      (eventTimesChanged)="eventTimesChanged($event)"
     >
     </mwl-calendar-week-view>
   </div>

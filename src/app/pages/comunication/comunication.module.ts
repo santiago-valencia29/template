@@ -17,6 +17,8 @@ import { registerLocaleData } from '@angular/common'
 import localeCO from '@angular/common/locales/es-CO'
 import { FilterComponent } from './calendar/filter/filter.component'
 import { MAT_DATE_LOCALE } from '@angular/material/core'
+import { RecordTimeComponent } from './calendar/record-time/record-time.component'
+import { FlexLayoutModule } from '@angular/flex-layout'
 
 registerLocaleData(localeCO)
 
@@ -29,6 +31,7 @@ registerLocaleData(localeCO)
     SharedModule,
     ComunicationRoutingModule,
     HeaderModule,
+    FlexLayoutModule,
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory
@@ -37,6 +40,7 @@ registerLocaleData(localeCO)
     FlatpickrModule.forRoot()
   ],
   declarations: [
+    RecordTimeComponent,
     FilterComponent,
     CalendarComponent,
     IconsPageComponent,
@@ -44,6 +48,7 @@ registerLocaleData(localeCO)
     ServiceTwoComponent
   ],
   exports: [
+    RecordTimeComponent,
     FilterComponent,
     CalendarComponent,
     IconsPageComponent,
