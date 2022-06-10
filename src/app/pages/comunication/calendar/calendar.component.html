@@ -2,50 +2,57 @@
   <div class="row mt-4 text-center">
     <div class="col-md-4">
       <div class="btn-group">
-        <div
-          class="btn btn-primary"
+        <button
+          mat-flat-button
+          class="btn btn-outline-secondary button-hoy"
           mwlCalendarPreviousView
           [view]="view"
           [(viewDate)]="viewDate"
           (viewDateChange)="closeOpenMonthViewDay()"
         >
           Anterior
-        </div>
-        <div
-          class="btn btn-outline-secondary"
-          mwlCalendarToday
-          [(viewDate)]="viewDate"
-        >
+        </button>
+        <button mat-flat-button mwlCalendarToday [(viewDate)]="viewDate">
           Hoy
-        </div>
-        <div
-          class="btn btn-primary"
+        </button>
+        <button
+          mat-flat-button
+          class="btn btn-outline-secondary button-hoy"
           mwlCalendarNextView
           [view]="view"
           [(viewDate)]="viewDate"
           (viewDateChange)="closeOpenMonthViewDay()"
         >
           Siguiente
-        </div>
+        </button>
       </div>
     </div>
     <div class="col-md-4">
-      <h3>{{ viewDate | calendarDate: view + 'ViewTitle':'es-CO' }}</h3>
+      <h3>
+        {{ viewDate | calendarDate: view + 'ViewTitle':locale:weekStartsOn }}
+      </h3>
     </div>
     <div class="col-md-4">
-      <button class="btn btn-primary float-right" (click)="addEvent()">
+      <button
+        mat-flat-button
+        class="btn btn-outline-secondary float-right"
+        (click)="addEvent()"
+      >
         Registrar Tiempo
       </button>
-      <mat-icon>delete</mat-icon>
     </div>
   </div>
   <br />
-  <div>
+  <div class="scroll-container">
     <mwl-calendar-week-view
       [viewDate]="viewDate"
+      [weekStartsOn]="1"
+      [dayStartHour]="6"
+      [dayEndHour]="23"
       [events]="events"
       [refresh]="refresh"
       [locale]="locale"
+      [hourSegments]="1"
       (eventClicked)="handleEvent('Clicked', $event.event)"
       (eventTimesChanged)="eventTimesChanged($event)"
     >

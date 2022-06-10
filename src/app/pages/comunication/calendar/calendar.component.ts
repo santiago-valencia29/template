@@ -3,7 +3,8 @@ import {
   OnInit,
   ChangeDetectionStrategy,
   ViewChild,
-  TemplateRef
+  TemplateRef,
+  ViewEncapsulation
 } from '@angular/core'
 import {
   startOfDay,
@@ -21,20 +22,35 @@ import {
   CalendarEvent,
   CalendarEventAction,
   CalendarEventTimesChangedEvent,
+  CalendarEventTitleFormatter,
   CalendarView
 } from 'angular-calendar'
+import { CustomEventTitleFormatter } from './utils/custom-event-title-formatter.provider'
 const colors: any = {
-  red: {
+  evento: {
     primary: '#ad2121',
     secondary: '#FAE3E3'
   },
-  blue: {
+  eventoSecundary: {
+    primary: '#ad2121',
+    secondary: '#FAE3E3'
+  },
+  hOrdinarias: {
     primary: '#1e90ff',
     secondary: '#D1E8FF'
   },
-  yellow: {
-    primary: '#e3bc08',
-    secondary: '#FDF1BA'
+  hExtrasDiurnas: {
+    primary: '#1e90ff',
+    secondary: '#FFF85F'
+  },
+  hOrdinariasNocturnas: {
+    primary: '#1e90ff',
+    secondary: '#D1E8FF'
+  },
+  hExtrasNocturnas: {
+    primary: '#0000000',
+    secondary: '#4D6CA0 ',
+    terciary: '#ffffff'
   }
 }
 
@@ -42,10 +58,18 @@ const colors: any = {
   selector: 'app-calendar',
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './calendar.component.html',
-  styleUrls: ['./calendar.component.scss']
+  styleUrls: ['./calendar.component.scss'],
+  encapsulation: ViewEncapsulation.None,
+  providers: [
+    {
+      provide: CalendarEventTitleFormatter,
+      useClass: CustomEventTitleFormatter
+    }
+  ]
 })
 export class CalendarComponent implements OnInit {
   locale: string = 'es-CO'
+  weekStartsOn: number = 1
   view: CalendarView = CalendarView.Week
   CalendarView = CalendarView
   viewDate: Date = new Date()
@@ -78,49 +102,117 @@ export class CalendarComponent implements OnInit {
 
   events: CalendarEvent[] = [
     {
-      start: subDays(startOfDay(new Date()), 1),
-      end: addDays(new Date(), 1),
-      title: 'A 3 day event',
-      color: colors.red,
+      start: new Date('2022-06-06T02:24'),
+      end: new Date('2022-06-06T02:24'),
+      title: 'Evento Integral',
+      color: colors.evento,
       actions: this.actions,
       allDay: true,
-      resizable: {
-        beforeStart: true,
-        afterEnd: true
-      },
-      draggable: true
-    },
-    {
-      start: startOfDay(new Date()),
-      title: 'An event with no end date',
-      color: colors.yellow,
-      actions: this.actions
+      meta: {
+        project: '',
+        activity: '',
+        hours: '',
+        hourType: '',
+        description: ''
+      }
     },
     {
       start: subDays(endOfMonth(new Date()), 3),
       end: addDays(endOfMonth(new Date()), 3),
-      title: 'A long event that spans 2 months',
-      color: colors.blue,
+      title: 'Evento largo que se extiende por 2 meses',
+      color: colors.hOrdinarias,
       allDay: true
     },
     {
-      start: addHours(startOfDay(new Date()), 2),
-      end: addHours(new Date(), 2),
-      title: 'A draggable and resizable event',
-      color: colors.yellow,
+      id: 1,
+      start: new Date('2022-06-10T07:00'),
+      end: new Date('2022-06-10T10:00'),
+      title: 'ELECTROMEC TUNEL LA LINEA',
+      color: colors.hOrdinarias,
       actions: this.actions,
-      resizable: {
-        beforeStart: true,
-        afterEnd: true
-      },
-      draggable: true
+      cssClass: 'hExtrasDiurnas',
+      meta: {
+        project: 'ELECTROMEC TUNEL LA LINEA',
+        activity: 'Coordinación',
+        hours: this.getDifferenceHours(
+          new Date('2022-06-10T07:00'),
+          new Date('2022-06-10T10:00')
+        ),
+        hourType: 'Horas Ordinarias',
+        description: ''
+      }
+    },
+    {
+      id: 2,
+      start: new Date('2022-06-10T10:00'),
+      end: new Date('2022-06-10T12:30'),
+      title: 'ELECTROMEC TUNEL LA LINEA',
+      color: colors.hOrdinarias,
+      cssClass: 'hExtrasDiurnas',
+      actions: this.actions,
+      meta: {
+        project: 'ELECTROMEC TUNEL LA LINEA',
+        activity: 'Electrica e Its',
+        hours: this.getDifferenceHours(
+          new Date('2022-06-10T10:00'),
+          new Date('2022-06-10T12:30')
+        ),
+        hourType: 'Horas Ordinarias',
+        description: ''
+      }
+    },
+    {
+      id: 3,
+      start: new Date('2022-06-10T14:00'),
+      end: new Date('2022-06-10T19:00'),
+      title: 'METRO CABLE',
+      color: colors.hExtrasDiurnas,
+      cssClass: 'hExtrasDiurnas',
+      actions: this.actions,
+      meta: {
+        project: 'METRO CABLE',
+        activity: 'Diseño',
+        hours: this.getDifferenceHours(
+          new Date('2022-06-10T14:00'),
+          new Date('2022-06-10T19:00')
+        ),
+        hourType: 'Horas Ordinarias',
+        description: ''
+      }
+    },
+    {
+      id: 4,
+      start: new Date('2022-06-10T20:00'),
+      end: new Date('2022-06-10T24:00'),
+      title: 'HIDROLECTRICA',
+      color: colors.hExtrasNocturnas,
+      cssClass: 'hExtrasNocturnas',
+      actions: this.actions,
+      meta: {
+        project: 'HIDROLECTRICA',
+        activity: 'Informe',
+        hours: this.getDifferenceHours(
+          new Date('2022-06-10T20:00'),
+          new Date('2022-06-10T24:00')
+        ),
+        hourType: 'Horas Extras Nocturnas',
+        description: ''
+      }
     }
   ]
 
   activeDayIsOpen: boolean = true
 
   constructor(private modalService: BsModalService) {}
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.events[2].start)
+  }
+
+  getDifferenceHours(start: Date, end: Date): string {
+    let difference = Math.abs(start.getTime() - end.getTime())
+    let totalHours = difference / (60 * 60 * 1000)
+    return totalHours.toString() + ' Horas'
+  }
 
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
     if (isSameMonth(date, this.viewDate)) {
@@ -187,5 +279,6 @@ export class CalendarComponent implements OnInit {
 
   closeOpenMonthViewDay() {
     this.activeDayIsOpen = false
+    console.log('total-Horas')
   }
 }
