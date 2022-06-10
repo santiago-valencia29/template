@@ -25,6 +25,7 @@ import {
 import { CustomEventTitleFormatter } from './utils/custom-event-title-formatter.provider'
 import { MatDialog } from '@angular/material/dialog'
 import { RecordTimeComponent } from './record-time/record-time.component'
+import { SummaryComponent } from './summary/summary.component'
 const colors: any = {
   evento: {
     primary: '#ad2121',
@@ -91,9 +92,18 @@ export class CalendarComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       if (result === true) {
         this.addEvent()
+        this.refresh.next()
       } else {
         return
       }
+    })
+  }
+
+  openPopUpSummary() {
+    const dialogRef = this.dialog.open(SummaryComponent, {
+      // width: '600px',
+      // data: modalData
+      // backdropClass: 'backdropBackground'
     })
   }
 
@@ -237,18 +247,18 @@ export class CalendarComponent implements OnInit {
     this.events = [
       ...this.events,
       {
-        start: new Date('2022-06-11T8:00'),
-        end: new Date('2022-06-11T10:00'),
+        start: new Date('2022-06-11T08:00'),
+        end: new Date('2022-06-11T11:00'),
         title: 'METRO CABLE',
-        color: colors.hOrdinarias,
+        color: colors.hExtrasDiurnas,
         cssClass: 'hExtrasDiurnas',
         actions: this.actions,
         meta: {
           project: 'METRO CABLE',
           activity: 'Coordinación',
           hours: this.getDifferenceHours(
-            new Date('2022-06-11T8:00'),
-            new Date('2022-06-11T10:00')
+            new Date('2022-06-11T08:00'),
+            new Date('2022-06-11T11:00')
           ),
           hourType: 'Horas Ordinarias',
           description: ''

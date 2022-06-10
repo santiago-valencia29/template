@@ -19,6 +19,7 @@ import { FilterComponent } from './calendar/filter/filter.component'
 import { MAT_DATE_LOCALE } from '@angular/material/core'
 import { RecordTimeComponent } from './calendar/record-time/record-time.component'
 import { FlexLayoutModule } from '@angular/flex-layout'
+import { SummaryComponent } from './calendar/summary/summary.component'
 
 registerLocaleData(localeCO)
 
@@ -40,6 +41,7 @@ registerLocaleData(localeCO)
     FlatpickrModule.forRoot()
   ],
   declarations: [
+    SummaryComponent,
     RecordTimeComponent,
     FilterComponent,
     CalendarComponent,
@@ -48,6 +50,7 @@ registerLocaleData(localeCO)
     ServiceTwoComponent
   ],
   exports: [
+    SummaryComponent,
     RecordTimeComponent,
     FilterComponent,
     CalendarComponent,
