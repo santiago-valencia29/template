@@ -83,7 +83,8 @@ export class CalendarComponent implements OnInit {
   constructor(public dialog: MatDialog, private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
-    console.log(this.events[2].start)
+    this.openPopUpSummary()
+    // console.log(this.events[2].start)
   }
 
   refresh = new Subject<void>()
@@ -106,7 +107,7 @@ export class CalendarComponent implements OnInit {
 
   openPopUpSummary() {
     const dialogRef = this.dialog.open(SummaryComponent, {
-      // width: '600px',
+      width: '1000px'
       // data: modalData
       // backdropClass: 'backdropBackground'
     })

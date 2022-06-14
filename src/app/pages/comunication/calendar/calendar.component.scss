@@ -9,36 +9,25 @@ pre {
 }
 
 .scroll-container {
-  // margin-right: 300px;
   height: calc(100vh - 200px);
   overflow-y: auto;
 }
 
-// .cal-cell-row {
-//   height: 100%;
-// }
-// .ng-star-inserted {
-//   height: 51px;
-// }
-// .cal-month-view .cal-day-cell {
-//   height: 51px;
-//   min-height: 0px;
-// }
-
-.cal-week-view .cal-time-label-column {
-  width: 30%;
-  height: 100%;
+.th-tittle-hour {
+  width: 5.2%;
+  min-width: 70px;
 }
-.cal-week-view .cal-day-headers {
-  padding-left: 30%;
+
+.th-hour {
+  width: 13.5%;
+  padding-bottom: 15px;
+  text-align: center;
+  word-break: break-word;
+  padding-bottom: 15px !important;
 }
 
 .cal-week-view .cal-time {
   width: auto;
-}
-
-.cal-week-view .cal-all-day-events .cal-events-row {
-  margin-left: 30%;
 }
 
 .hExtrasNocturnas span {
