@@ -63,44 +63,10 @@
       [refresh]="refresh"
       [locale]="locale"
       [hourSegments]="1"
-      (eventClicked)="handleEvent('Clicked', $event.event)"
+      (beforeViewRender)="beforeViewRender($event)"
     >
+      > (eventClicked)="handleEvent('Clicked', $event.event)" >
     </mwl-calendar-week-view>
-    <div>
-      <table class="table table-secondary table-bordered">
-        <thead>
-          <tr>
-            <th class="text-center th-tittle-hour" scope="col">Total horas</th>
-            <th class="th-hour" scope="col">9 horas</th>
-            <th class="th-hour" scope="col">9 horas</th>
-            <th class="th-hour" scope="col">9 horas</th>
-            <th class="th-hour" scope="col">11 horas</th>
-            <th class="th-hour" scope="col">14.5 horas</th>
-            <th class="th-hour" scope="col">0 horas</th>
-            <th class="th-hour" scope="col">0 horas</th>
-          </tr>
-        </thead>
-        <!-- <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-          </tr>
-        </tbody> -->
-      </table>
-    </div>
+    <app-summary></app-summary>
   </div>
 </app-layout>

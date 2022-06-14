@@ -20,6 +20,7 @@ import { MAT_DATE_LOCALE } from '@angular/material/core'
 import { RecordTimeComponent } from './calendar/record-time/record-time.component'
 import { FlexLayoutModule } from '@angular/flex-layout'
 import { SummaryComponent } from './calendar/summary/summary.component'
+import { MatDialogRef } from '@angular/material/dialog'
 
 registerLocaleData(localeCO)
 
@@ -58,6 +59,12 @@ registerLocaleData(localeCO)
     ServiceOneComponent,
     ServiceTwoComponent
   ],
-  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'es-CO' }]
+  providers: [
+    { provide: MAT_DATE_LOCALE, useValue: 'es-CO' },
+    {
+      provide: MatDialogRef,
+      useValue: {}
+    }
+  ]
 })
 export class ComunicationModule {}

@@ -2,7 +2,8 @@ import {
   Component,
   OnInit,
   ChangeDetectionStrategy,
-  ViewEncapsulation
+  ViewEncapsulation,
+  ChangeDetectorRef
 } from '@angular/core'
 import {
   startOfDay,
@@ -16,11 +17,14 @@ import {
 } from 'date-fns'
 import { Subject } from 'rxjs'
 import {
+  CalendarDayViewBeforeRenderEvent,
   CalendarEvent,
   CalendarEventAction,
   CalendarEventTimesChangedEvent,
   CalendarEventTitleFormatter,
-  CalendarView
+  CalendarView,
+  CalendarViewPeriod,
+  CalendarWeekViewBeforeRenderEvent
 } from 'angular-calendar'
 import { CustomEventTitleFormatter } from './utils/custom-event-title-formatter.provider'
 import { MatDialog } from '@angular/material/dialog'
@@ -74,8 +78,9 @@ export class CalendarComponent implements OnInit {
   CalendarView = CalendarView
   viewDate: Date = new Date()
   activeDayIsOpen: boolean = true
+  period: CalendarViewPeriod
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
     console.log(this.events[2].start)
@@ -273,7 +278,21 @@ export class CalendarComponent implements OnInit {
 
   closeOpenMonthViewDay() {
     this.activeDayIsOpen = false
-    console.log('total-Horas')
+
+    console.log('total-Horas', this.viewDate)
+  }
+
+  beforeViewRender(event: CalendarWeekViewBeforeRenderEvent) {
+    if (
+      !this.period ||
+      this.period.start.getTime() !== event.period.start.getTime() ||
+      this.period.end.getTime() !== event.period.end.getTime()
+    ) {
+      this.period = event.period
+      console.log(this.period)
+      // this.events = [];
+      this.cdr.detectChanges()
+    }
   }
 
   // dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
