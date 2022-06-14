@@ -10,12 +10,15 @@
     *ngFor="let column of columnsToDisplay"
   >
     <th mat-header-cell *matHeaderCellDef>{{ column }}</th>
-    <td mat-cell *matCellDef="let element">{{ element[column] }}</td>
+    <td mat-cell *matCellDef="let element">
+      {{ element[column] }}
+    </td>
   </ng-container>
   <ng-container matColumnDef="expand">
     <th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</th>
     <td mat-cell *matCellDef="let element">
       <button
+        class="button-align"
         mat-icon-button
         aria-label="expand row"
         (click)="
@@ -41,7 +44,7 @@
       [attr.colspan]="columnsToDisplayWithExpand.length"
     >
       <div
-        class="example-element-detail"
+        class="element-detail"
         [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'"
       >
         <div>
@@ -49,17 +52,20 @@
             <thead>
               <tr>
                 <!-- <th scope="col">N°</th> -->
-                <th scope="col">Actividades</th>
-                <th scope="col">HR</th>
-                <th scope="col">HP</th>
-                <th scope="col">DF</th>
-                <th scope="col">lunes</th>
-                <th scope="col">martes</th>
-                <th scope="col">miercoles</th>
-                <th scope="col">jueves</th>
-                <th scope="col">viernes</th>
-                <th scope="col">sabado</th>
-                <th scope="col">domingo</th>
+                <th style="width: 225px; min-width: 225px" scope="col">
+                  Actividades
+                </th>
+                <th style="width: 35px; min-width: 35px" scope="col"></th>
+                <th style="width: 35px; min-width: 35px" scope="col"></th>
+                <th style="width: 35px; min-width: 35px" scope="col"></th>
+                <th style="width: 60px; min-width: 60px" scope="col"></th>
+                <th style="width: 60px; min-width: 60px" scope="col"></th>
+                <th style="width: 80px; min-width: 80px" scope="col"></th>
+                <th style="width: 60px; min-width: 60px" scope="col"></th>
+                <th style="width: 60px; min-width: 60px" scope="col"></th>
+                <th style="width: 60px; min-width: 60px" scope="col"></th>
+                <th style="width: 70px; min-width: 70px" scope="col"></th>
+                <th style="width: 60px; min-width: 60px" scope="col">total</th>
               </tr>
             </thead>
             <tbody>
@@ -76,6 +82,7 @@
                 <td>{{ act.viernes }}</td>
                 <td>{{ act.sabado }}</td>
                 <td>{{ act.domingo }}</td>
+                <td>{{ act.total }}</td>
               </tr>
             </tbody>
           </table>
@@ -88,13 +95,13 @@
   <tr
     mat-row
     *matRowDef="let element; columns: columnsToDisplayWithExpand"
-    class="example-element-row"
+    class="element-row"
     [class.example-expanded-row]="expandedElement === element"
     (click)="expandedElement = expandedElement === element ? null : element"
   ></tr>
   <tr
     mat-row
     *matRowDef="let row; columns: ['expandedDetail']"
-    class="example-detail-row"
+    class="detail-row"
   ></tr>
 </table>

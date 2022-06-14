@@ -16,10 +16,12 @@ pre {
 .th-tittle-hour {
   width: 5.2%;
   min-width: 70px;
+  font-weight: 500;
 }
 
 .th-hour {
   width: 13.5%;
+  font-weight: 400;
   padding-bottom: 15px;
   text-align: center;
   word-break: break-word;
@@ -51,4 +53,9 @@ pre {
 
 .button-hoy {
   background-color: #03787c;
+}
+
+.table-color {
+  background-color: #3b7c7c;
+  color: white !important;
 }

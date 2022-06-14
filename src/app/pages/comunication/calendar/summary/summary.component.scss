@@ -10,25 +10,27 @@ table {
   border: 1px solid;
 }
 
-tr.example-detail-row {
+tr.detail-row {
   height: 0;
 }
 
-tr.example-element-row:not(.example-expanded-row):hover {
+tr.element-row:not(.example-expanded-row):hover {
   background: whitesmoke;
 }
 
-tr.example-element-row:not(.example-expanded-row):active {
+tr.element-row:not(.example-expanded-row):active {
   background: #efefef;
 }
 
-.example-element-row td {
+.element-row td {
   text-align: center;
   border: 1px solid rgb(235, 230, 230);
-  border-bottom-width: 0;
+  border-bottom-width: 1;
+  background-color: #4c9c9c;
+  color: white;
 }
 
-.example-element-detail {
+.element-detail {
   overflow: hidden;
   display: flex;
 }
@@ -36,46 +38,65 @@ tr.example-element-row:not(.example-expanded-row):active {
 .mat-header-cell {
   text-align: center;
   font-size: 14px;
-  font-weight: 600;
   color: black;
   border: 1px solid rgb(235, 230, 230);
+  background-color: #03787c;
+  color: white;
 }
 
 .mat-column-Proyecto {
-  width: 25%;
+  width: 250px;
+  min-width: 250px;
 }
 
 .mat-column-HR {
-  width: 5%;
+  width: 35px;
+  min-width: 35px;
 }
 
 .mat-column-HP {
-  width: 5%;
+  width: 35px;
+  min-width: 35px;
 }
 
 .mat-column-DF {
-  width: 5%;
+  width: 35px;
+  min-width: 35px;
 }
 
-// .example-element-diagram {
-//   min-width: 80px;
-//   border: 2px solid black;
-//   padding: 8px;
-//   font-weight: lighter;
-//   margin: 8px 0;
-//   height: 104px;
-// }
+.mat-column-lunes {
+  width: 60px;
+  min-width: 60px;
+}
+.mat-column-martes {
+  width: 60px;
+  min-width: 60px;
+}
+.mat-column-miercoles {
+  width: 80px;
+  min-width: 80px;
+}
+.mat-column-jueves {
+  width: 60px;
+  min-width: 60px;
+}
+.mat-column-viernes {
+  width: 60px;
+  min-width: 60px;
+}
+.mat-column-sabado {
+  width: 60px;
+  min-width: 60px;
+}
+.mat-column-domingo {
+  width: 70px;
+  min-width: 70px;
+}
 
-// .example-element-symbol {
-//   font-weight: bold;
-//   font-size: 40px;
-//   line-height: normal;
-// }
+td {
+  text-align: center;
+}
 
-// .example-element-description {
-//   padding: 16px;
-// }
-
-// .example-element-description-attribution {
-//   opacity: 0.5;
-// }
+.button-align {
+  margin-left: 20px;
+}

@@ -60,6 +60,156 @@ export interface Sumamary {
 const ELEMENT_DATA: Sumamary[] = [
   {
     Proyecto: '0010162 - ELECTROMEC TUNEL LA LINEA',
+    HR: 20.5,
+    HP: 82.0,
+    DF: 62.0,
+    actividades: [
+      {
+        id: 1,
+        actividad: '001016204110 - COORDINACION',
+        hr: 10.5,
+        hp: 18,
+        df: 8,
+        lunes: 8,
+        martes: 10,
+        miercoles: 12,
+        jueves: 14,
+        viernes: 10,
+        sabado: 9,
+        domingo: 8,
+        total: 10
+      },
+      {
+        id: 2,
+        actividad: '0010162204120 - ELECTRICA E ITS',
+        hr: 10,
+        hp: 12,
+        df: 2,
+        lunes: 8,
+        martes: 10,
+        miercoles: 12,
+        jueves: 14,
+        viernes: 10,
+        sabado: 9,
+        domingo: 8,
+        total: 10
+      }
+    ],
+    lunes: 8,
+    martes: 10,
+    miercoles: 12,
+    jueves: 14,
+    viernes: 10,
+    sabado: 9,
+    domingo: 8
+  },
+  {
+    Proyecto: '0010150 - TOYO',
+    HR: 20.0,
+    HP: 82.0,
+    DF: 62.0,
+    actividades: [
+      {
+        id: 1,
+        actividad: '001016204110 - DISEÑO',
+        hr: 10,
+        hp: 18,
+        df: 8,
+        lunes: 8,
+        martes: 10,
+        miercoles: 12,
+        jueves: 14,
+        viernes: 10,
+        sabado: 9,
+        domingo: 8,
+        total: 10
+      },
+      {
+        id: 2,
+        actividad: '0010162204120 - EXPLORACIÓN',
+        hr: 10,
+        hp: 12,
+        df: 2,
+        lunes: 8,
+        martes: 10,
+        miercoles: 12,
+        jueves: 14,
+        viernes: 10,
+        sabado: 9,
+        domingo: 8,
+        total: 10
+      }
+    ],
+    lunes: 8,
+    martes: 10,
+    miercoles: 12,
+    jueves: 14,
+    viernes: 10,
+    sabado: 9,
+    domingo: 8
+  },
+  {
+    Proyecto: '00101895 - METRO CABLE',
+    HR: 30.0,
+    HP: 82.0,
+    DF: 62.0,
+    actividades: [
+      {
+        id: 1,
+        actividad: '001016204110 - COORDINACION',
+        hr: 10,
+        hp: 18,
+        df: 8,
+        lunes: 8,
+        martes: 10,
+        miercoles: 12,
+        jueves: 14,
+        viernes: 10,
+        sabado: 9,
+        domingo: 8,
+        total: 10
+      },
+      {
+        id: 2,
+        actividad: '0010162204120 - DISEÑO',
+        hr: 10,
+        hp: 12,
+        df: 2,
+        lunes: 8,
+        martes: 10,
+        miercoles: 12,
+        jueves: 14,
+        viernes: 10,
+        sabado: 9,
+        domingo: 8,
+        total: 10
+      },
+      {
+        id: 3,
+        actividad: '0010162204120 - INFORME',
+        hr: 10,
+        hp: 12,
+        df: 2,
+        lunes: 8,
+        martes: 10,
+        miercoles: 12,
+        jueves: 14,
+        viernes: 10,
+        sabado: 9,
+        domingo: 8,
+        total: 10
+      }
+    ],
+    lunes: 8,
+    martes: 10,
+    miercoles: 12,
+    jueves: 14,
+    viernes: 10,
+    sabado: 9,
+    domingo: 8
+  },
+  {
+    Proyecto: '0010189 - RESERVORIO',
     HR: 20.0,
     HP: 82.0,
     DF: 62.0,
@@ -76,11 +226,12 @@ const ELEMENT_DATA: Sumamary[] = [
         jueves: 14,
         viernes: 10,
         sabado: 9,
-        domingo: 8
+        domingo: 8,
+        total: 10
       },
       {
         id: 2,
-        actividad: '0010162204120 - ELECTRICA E ITS',
+        actividad: '0010162204120 - EXPLORACIÓN',
         hr: 10,
         hp: 12,
         df: 2,
@@ -90,7 +241,8 @@ const ELEMENT_DATA: Sumamary[] = [
         jueves: 14,
         viernes: 10,
         sabado: 9,
-        domingo: 8
+        domingo: 8,
+        total: 10
       }
     ],
     lunes: 8,
