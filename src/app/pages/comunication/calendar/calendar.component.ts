@@ -30,6 +30,7 @@ import { CustomEventTitleFormatter } from './utils/custom-event-title-formatter.
 import { MatDialog } from '@angular/material/dialog'
 import { RecordTimeComponent } from './record-time/record-time.component'
 import { SummaryComponent } from './summary/summary.component'
+import { ReopeningComponent } from './reopening/reopening.component'
 const colors: any = {
   evento: {
     primary: '#ad2121',

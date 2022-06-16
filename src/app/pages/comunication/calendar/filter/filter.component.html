@@ -1,5 +1,14 @@
 <div fxLayout="row">
-  <h3 class="p-2">Registro de horas</h3>
+  <h3 fxFlex class="p-2">Registro de horas</h3>
+  <div fxFlexAlign="end">
+    <button
+      (click)="openPopUpReopening()"
+      mat-flat-button
+      class="btn btn-outline-secondary m-2"
+    >
+      Reapertura
+    </button>
+  </div>
 </div>
 <form class="example-form">
   <mat-form-field appearance="fill">

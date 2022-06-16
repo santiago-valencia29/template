@@ -21,6 +21,7 @@ import { RecordTimeComponent } from './calendar/record-time/record-time.componen
 import { FlexLayoutModule } from '@angular/flex-layout'
 import { SummaryComponent } from './calendar/summary/summary.component'
 import { MatDialogRef } from '@angular/material/dialog'
+import { ReopeningComponent } from './calendar/reopening/reopening.component'
 
 registerLocaleData(localeCO)
 
@@ -42,6 +43,7 @@ registerLocaleData(localeCO)
     FlatpickrModule.forRoot()
   ],
   declarations: [
+    ReopeningComponent,
     SummaryComponent,
     RecordTimeComponent,
     FilterComponent,
@@ -51,6 +53,7 @@ registerLocaleData(localeCO)
     ServiceTwoComponent
   ],
   exports: [
+    ReopeningComponent,
     SummaryComponent,
     RecordTimeComponent,
     FilterComponent,
