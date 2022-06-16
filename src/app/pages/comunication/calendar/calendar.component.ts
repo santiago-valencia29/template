@@ -83,7 +83,7 @@ export class CalendarComponent implements OnInit {
   constructor(public dialog: MatDialog, private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
-    this.openPopUpSummary()
+    // this.openPopUpSummary()
     // console.log(this.events[2].start)
   }
 
