@@ -11,7 +11,6 @@ import { CalendarComponent } from './calendar/calendar.component'
 import { CalendarModule, DateAdapter } from 'angular-calendar'
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
-import { FlatpickrModule } from 'angularx-flatpickr'
 import { ModalModule } from 'ngx-bootstrap/modal'
 import { registerLocaleData } from '@angular/common'
 import localeCO from '@angular/common/locales/es-CO'
@@ -39,8 +38,7 @@ registerLocaleData(localeCO)
       provide: DateAdapter,
       useFactory: adapterFactory
     }),
-    ModalModule.forRoot(),
-    FlatpickrModule.forRoot()
+    ModalModule.forRoot()
   ],
   declarations: [
     ReopeningComponent,

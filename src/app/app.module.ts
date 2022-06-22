@@ -10,7 +10,7 @@ import { TablesModule } from './pages/tables/tables.module'
 import { TypographyModule } from './pages/typography/typography.module'
 import { ComunicationModule } from './pages/comunication/comunication.module'
 import { HttpClientModule } from '@angular/common/http'
-import { FlatpickrModule } from 'angularx-flatpickr'
+import { FormioModule } from '@formio/angular'
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,7 +24,8 @@ import { FlatpickrModule } from 'angularx-flatpickr'
     TablesModule,
     TypographyModule,
     ComunicationModule,
-    HttpClientModule
+    HttpClientModule,
+    FormioModule
   ],
   bootstrap: [AppComponent]
 })
